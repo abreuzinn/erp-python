@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends "topo.html" %}
+
+{% block body %}
+<table class='TableRelat'>
+	<caption>{{ titulo }}</caption>
+
+	<thead>
+		<tr>
+			{% for row in headertable %}
+			<th> {{ row }}</th>
+			{% endfor %}
+		</tr>
+	</thead>
+	<tbody>
+		{% for i in range(nome | length)  %}
+		<tr>
+
+			<td width="20">
+				{{ codcliente[i] }}
+			</td>
+			<td>
+				{{ nome[i] }}
+			</td>
+			<td>
+				{{ telefoneFornecedor[i] }}
+			</td>
+			<td>
+				{{ emailFornecedor[i] }}
+			</td>
+
+
+		</tr>
+		{% endfor %}
+	</tbody>
+
+
+</table>
+
+
+
+{% endblock %}

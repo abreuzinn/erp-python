@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+{%  extends "topo.html" %}
+
+{% block body %}
+
+<table class='TableRelat'>
+    <caption>{{ titulo }}</caption>
+    <thead>
+        <tr>
+            {% for row in headertable %}
+            <th colspan="2"> {{ row }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tr>
+        <td colspan="2">
+            <table class='TableRelat'>
+                <tbody>
+                    {% for i in range(desc_receita | length) %}
+                    <tr>
+                        <td>
+                            {{desc_receita[i]}}
+                        </td>
+                        <td>
+                            {{total_desc[i]}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </td>
+
+        <td colspan="2">
+
+            <table class='TableRelat'>
+                <tbody>
+                    {% for i in range(desc_despesa | length) %}
+                    <tr>
+                        <td>
+                            {{desc_despesa[i]}}
+                        </td>
+                        <td>
+                            {{total_descDespesa[i]}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+
+            </table>
+
+        </td>
+    </tr>
+    <tfoot>
+        <tr>
+            <th style="background: #FFF; color: #000">Total Receita</th>
+            <th style="font-weight: bold"> R$ {{ totalreceita }}</th>
+            <th style="background: #FFF; color: #000">Total Despesas</th>
+            <th> R$ {{ totaldespesa }}</th>
+        </tr>
+        <tr>
+            <th style="background: #FFF"></th>
+            <th style="background: #FFF"></th>
+            <th style="background: #FFF; color: #000">Saldo Final</th>
+            {% if totalFinal2 > 0 %}
+            <th> {{ totalFinal }}</th>
+            {% else %}
+            <th style="background: red">{{ totalFinal }}</th>
+            {%endif%}
+
+        </tr>
+    </tfoot>
+
+
+</table>
+{% endblock %}

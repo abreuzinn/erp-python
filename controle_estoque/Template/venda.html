@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+{% extends "topo.html" %}
+
+{% block body %}
+<div id="dadoscliente">
+	<span><b style="font-weight: bold">{{ titulo }} {{idPedido}}</b></span>
+	<span><b> Nome Fantasia :</b> {{cliente}} </span>
+	<span>Endereço: {{endCliente[0]}}, {{endCliente[1]}}</span>
+	<class class="box">
+		<span>Cep: {{cepCliente}} </span>
+		<span>E-mail: {{emailEcliente}}</span>
+		<span>CPF/CNPJ: {{cpfCliente}} </span>
+	</class>
+	<class class="box">
+		<span></span>
+		<span></span>
+		<span>Cidade: {{cidadeCliente}}</span>
+		<span>Telefone: {{telefoneCliente}}</span>
+		<span>RG: {{rgCliente}}</span>
+	</class>
+	<class class="box">
+		<span> </span>
+		<span> </span>
+		<span>Bairro: {{bairroCliente}}</span>
+		<span>Estado: {{estadoCliente}}</span>
+		<span>Celular: {{celularCliente}}</span>
+	</class>
+
+</div>
+<class class="status">
+	<span>Data Emissão: <b>{{ dataEmissao }}</b></span>
+	<span>Prazo Entrega: <b>{{ prazoEntrega }} </b></span>
+	<!-- Se entregar concluida -->
+	{% if statusEntrega[0] == 1 %}
+	<span>Data Entrega: <b>{{ dataEntrega }}</b></span>
+	{% endif %}
+	<!--  -->
+	{% if statusFinanceiro == 1 %}
+	<span>Pagamento: <b>Pago</b></span>
+	{% else %}
+	<span>Pagamento: <b>Pendente</b></span>
+	{% endif %}
+
+	{% if statusEntrega[0] == 1 %}
+	<span>Entrega: <b>Entregue</b></span>
+	{% else %}
+	<span>Entrega: <b>Pendente</b></span>
+	{% endif %}
+</class>
+
+<table class='TableRelat'>
+	<caption>Itens</caption>
+	<thead>
+		<tr>
+			<th>Produto</th>
+			<th>Observação</th>
+			<th style="width:80px; text-align: center;">Qtde.</th>
+			<th style="width:80px; text-align: center">$ Unitário</th>
+			<th style="width:80px; text-align: center">$ Total</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for i in range(descProduto | length)  %}
+		<tr>
+			<td>
+				{{descProduto[i]}}
+			</td>
+			<td>
+				{{ observacao[i] }}
+			</td>
+			<td style="text-align: center">
+				{{ quantidade[i] }}
+			</td>
+			<td style="text-align: center">
+				R$ {{ valUnit[i]}}
+			</td>
+			<td style="text-align: center">
+				R$ {{ valTotalItens[i]}}
+			</td>
+
+		</tr>
+	</tbody>
+	{% endfor %}
+	<tfoot>
+		<tr>
+			<th style="background: #FFF"></th>
+			<th style="background: #FFF"></th>
+			<th style="background: #FFF"></th>
+			<th style="background: #FFF; color:#000">Sub-Total:</th>
+			<th> R$ {{ subtotal }}</th>
+		</tr>
+		<tr>
+			<th style="background: #FFF"></th>
+			<th style="background: #FFF"></th>
+			<th style="background: #FFF"></th>
+			<th style="background: #FFF; color:#000">Frete:</th>
+			<th> R$ {{ frete }}</th>
+		</tr>
+		<tr>
+			<th style="background: #FFF"></th>
+			<th style="background: #FFF"></th>
+			<th style="background: #FFF"></th>
+			<th style="background: #FFF; color:#000">Desconto:</th>
+			<th>R$ {{ desconto }}</th>
+		</tr>
+		<tr>
+			<th style="background: #FFF"></th>
+			<th style="background: #FFF"></th>
+			<th style="background: #FFF"></th>
+			<th style="background: #FFF; color:#000">Total:</th>
+			<th style="text-align: center; font-weight: bold; font-size: 14px"> R$ {{total}} </th>
+		</tr>
+
+	</tfoot>
+</table>
+
+<table class="financeiro">
+	<caption>Financeiro</caption>
+	<thead>
+		<tr>
+			<th colspan="5">Forma de Pagamento: <b>{{ condicao }}</b> </th>
+		</tr>
+		<tr>
+			<th>Descrição</th>
+			<th>Vencimento</th>
+			<th>Valor</th>
+			<th>Situação</th>
+			<th>Pagamento</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for i in range(descParcela | length)  %}
+		<tr>
+			<td>{{ descParcela[i] }}</td>
+			<td>{{ vencimentoparcela[i] }}</td>
+			<td>R$ {{ valorParcela[i] }}</td>
+			<td>{{ situacao[i] }}</td>
+			<td>{{ formaPagamentoParcela[i] }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+{% endblock %}
