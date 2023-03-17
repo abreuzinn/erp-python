@@ -1,8 +1,12 @@
+# -*- coding: utf-8 -*-
+
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy import desc
 from sqlalchemy import func
+
 from Crud.core import Conexao
 from Crud.Models import Produto, CategoriaProduto, MarcaProduto
+
 
 class CrudProduto(object):
 
@@ -26,11 +30,13 @@ class CrudProduto(object):
         self.obsProduto = obsProduto
         self.query = query
 
-    # recendo ultimo id inserido
+    # Recendo ultimo ID inserido
 
     def lastIdProduto(self):
+
         try:
-            # abrindo sessao
+
+            # Abrindo Sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
@@ -38,7 +44,7 @@ class CrudProduto(object):
                 desc(Produto.id)).limit(1).first()
             self.id = ultimo.id + 1
 
-            # fechando conexao
+            # Fechando Conexao
             sessao.close()
 
         except:
@@ -47,14 +53,16 @@ class CrudProduto(object):
 
         return self.id
 
-    # cadastro de produto
+    # Cadastro de Produto
     def inseriProduto(self):
+
         try:
-            # abrindo sessao
+
+            # Abrindo Sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # query (consulta)
+            # Query
             row = Produto(
                 id=self.id,
                 produto=self.produto,
@@ -71,13 +79,13 @@ class CrudProduto(object):
 
             )
 
-            # add query na sessao
+            # Add query na sessao
             sessao.add(row)
 
-            # executando a query
+            # Executando a Query
             sessao.commit()
 
-            # fechando a conexao
+            # Fechando a Conexao
             sessao.close()
 
         except IntegrityError:
@@ -85,17 +93,19 @@ class CrudProduto(object):
 
         pass
 
-    # update de produto
+    # Update de Produto
     def updateProduto(self):
+
         try:
-            # abrindo sessao
+
+            # Abrindo Sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # selecionando id
+            # Selecionando id
             row = sessao.query(Produto).get(self.id)
 
-            # novos valores
+            # Novos Valores
 
             row.produto = self.produto
             row.imagem = self.imagem
@@ -109,10 +119,10 @@ class CrudProduto(object):
             row.qtde_atacado = self.qtdeAtacado
             row.obs = self.obsProduto
 
-            # executando a query
+            # Executando a Query
             sessao.commit()
 
-            # fechando a conexao
+            # Fechando a Conexao
             sessao.close()
 
         except IntegrityError as err:
@@ -120,18 +130,20 @@ class CrudProduto(object):
 
         pass
 
-    # busca por id
+    # Busca por ID
 
     def selectProdutoId(self):
+
         try:
-            # abrindo sessao
+
+            # Abrindo Sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # query
+            # Query
             busca = sessao.query(Produto).get(self.id)
 
-            # salvando resultado da query
+            # Salvando resultado da Query
             self.id = busca.id
             self.produto = busca.produto
             self.imagem = busca.imagem
@@ -146,7 +158,7 @@ class CrudProduto(object):
             self.qtdeAtacado = busca.qtde_atacado
             self.obsProduto = busca.obs
 
-            # fechando a conexao
+            # Fechando a Conexao
             sessao.close()
 
             pass
@@ -154,14 +166,17 @@ class CrudProduto(object):
         except:
             pass
 
-    # busca produto por nome
+    # Busca Produto por Nome
+
     def listaProduto(self):
+
         try:
-            # abrindo sessao
+
+            # Abrindo Sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # query
+            # Query
             self.query = (sessao.query(Produto.id, Produto.produto,
                                        Produto.estoque_minimo, Produto.qtde,
                                        Produto.valor_unitario,
@@ -174,7 +189,7 @@ class CrudProduto(object):
                           )
             self.query.all()
 
-            # convertendo variaveis em lista
+            # Convertendo variaveis em lista
             self.id = []
             self.produto = []
             self.marca = []
@@ -184,7 +199,7 @@ class CrudProduto(object):
             self.valorAtacado = []
             self.qtdeAtacado = []
 
-            # salvando resultado da query e suas listas
+            # Salvando resultado da query e suas listas
             for row in self.query:
                 self.id.append(row.id)
                 self.produto.append(row.produto)
@@ -195,7 +210,7 @@ class CrudProduto(object):
                 self.valorAtacado.append(row.valor_atacado)
                 self.qtdeAtacado.append(row.qtde_atacado)
 
-           # fechando a conexao
+           # Fechando a Conexao
             sessao.close()
 
             pass
@@ -206,47 +221,51 @@ class CrudProduto(object):
 
             pass
 
-    # busca nome autocomplete
+    # Busca Nome AutoCompete
     def autoCompleteProduto(self):
+
         try:
-            # abrindo sessao
+
+            # Abrindo Sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # query
+            # Query
             self.query = (sessao.query(Produto.produto).filter(
                 Produto.produto.contains(self.produto)))
             self.query.all()
 
-            # convertendo variavel em lista
+            # Convertendo variavel em lista
             self.produto = []
 
             # salvando resultado em lista
             for row in self.query:
                 self.produto.append(row.produto)
 
-            # fechando conexao
+            # Fechando Conexao
             sessao.close()
 
         except IntegrityError as err:
             print(err)
 
-    # busca produto por nome Autocomplete
+    # Busca produto por Nome Autocomplete
 
     def buscaProdutoNome(self):
+
         try:
-            # abrindo a sessao
+
+            # Abrindo a Sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # query
+            # Query
             self.query = sessao.query(Produto.id, Produto.produto).filter(
                 Produto.produto == self.produto).first()
 
-            # salvando resultado
+            # Salvando resultado
             self.id = self.query.id
 
-            # fechando a conexao
+            # Fechando a Conexao
             sessao.close()
 
             pass
@@ -254,60 +273,66 @@ class CrudProduto(object):
             self.produto = 'Produto Não Encontrado'
             pass
 
-    # retirando produto do estoque
+    # Retirando produto do estoque
     def retiradaEstoque(self):
+
         try:
-            # abrindo sessao
+
+            # Abrindo Sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # selecionando id produto
+            # Selecionando ID Produto
             row = sessao.query(Produto).get(self.id)
             row.qtde = row.qtde - float(self.qtdeProduto)
 
-            # executando a query
+            # Executando a query
             sessao.commit()
 
-            # fechando a conexao
+            # Fechando a Conexao
             sessao.close()
 
         except IntegrityError as err:
             print(err)
 
-    # entrada produto no estoque
+    # Entrada Produto no estoque
     def entradaEstoque(self):
+
         try:
-            # abrindo sessao
+
+            # Abrindo Sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # selecionando id produto
+            # Selecionando ID Produto
             row = sessao.query(Produto).get(self.id)
             row.qtde = row.qtde + float(self.qtdeProduto)
             row.valorCompra = self.valorCompra
             row.obs = self.obsProduto
 
-            # executando a query
+            # Executando a query
             sessao.commit()
 
-            # fechando a conexao
+            # Fechando a Conexao
             sessao.close()
 
         except IntegrityError as err:
             print(err)
 
-    # listar produtos com estoque abaixo do minimo
+    # LIstar produtos com estoque abaixo do minimo
     def listaEstoqueBaixo(self):
+
         try:
-            # abrindo sessao
+
+            # Abrindo Sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # query
+            # Query
             row = sessao.query(Produto).filter(
                 Produto.qtde < Produto.estoque_minimo).count()
 
-            # fechando Sessao
+            # Fechando Sessao
             sessao.close()
 
         except IntegrityError as err:
@@ -315,18 +340,20 @@ class CrudProduto(object):
 
         return row
 
-    # lista total de Produtos
+    # Lista total de Produtos
 
     def totalProdutoCadastrado(self):
+
         try:
-            # abrindo sessao
+
+            # Abrindo Sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # query
+            # Query
             row = sessao.query(Produto).count()
 
-            # fechando sessao
+            # Fechando Sessao
             sessao.close()
 
         except IntegrityError as err:

@@ -1,7 +1,11 @@
+# -*- coding: utf-8 -*-
+
 from sqlalchemy import desc
 from sqlalchemy.exc import IntegrityError
+
 from Crud.core import Conexao
 from Crud.Models import Nivel
+
 
 class CrudNivel(object):
 
@@ -10,19 +14,21 @@ class CrudNivel(object):
         self.nivel = nivel
 
     def listaNivel(self):
+
         try:
-            # abrindo a sessao
+
+            # Abrindo a sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # query (consulta)
+            # Query
             query = sessao.query(Nivel).all()
 
-            # convertendo variaveis em lista
+            # Convertendo variaveis em lista
             self.id = []
             self.nivel = []
 
-            # salvando resultado
+            # Salvando resultado
 
             for row in query:
                 self.id.append(row.id)

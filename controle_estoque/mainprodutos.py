@@ -1,8 +1,12 @@
+# -*- coding: utf-8 -*-
 from functools import partial
+
 from PyQt5.QtCore import Qt, QByteArray, QUrl, QBuffer
 from PyQt5.QtGui import QIntValidator, QDoubleValidator, QPixmap
 from PyQt5.QtWidgets import QFileDialog
 from PyQt5.QtWebEngineWidgets import QWebEngineView
+
+
 from Views.mainProdutos import Ui_ct_MainProdutos
 from Views.formProdutos import Ui_ct_FormProdutos
 from Crud.CrudProduto import CrudProduto

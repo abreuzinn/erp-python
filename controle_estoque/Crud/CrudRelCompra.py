@@ -1,6 +1,11 @@
+# -*- coding: utf-8 -*-
+
 from sqlalchemy.exc import IntegrityError
+
+
 from Crud.core import Conexao
 from Crud.Models import RelacaoCompra, Produto
+
 
 class CrudRelCompra(object):
     def __init__(self, id="", idCompra="", idProduto="", produto="",
@@ -17,14 +22,17 @@ class CrudRelCompra(object):
         self.obs = obs
         self.query = query
 
-    # cadastrando item referente a compra
+    # Cadastrando item referente a compra
+
     def inseriItens(self):
+
         try:
-            # abrindo sessao
+
+            # Abrindo Sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # query
+            # Query
             row = RelacaoCompra(
                 id=self.id,
                 id_compra=self.idCompra,
@@ -35,13 +43,13 @@ class CrudRelCompra(object):
                 obs=self.obs
             )
 
-            # add query sessa
+            # Add Query Sessa
             sessao.add(row)
 
-            # executando o query
+            # Executando a Query
             sessao.commit()
 
-            # fechando a conexao
+            # Fechando a Conexao
             sessao.close()
 
         except IntegrityError:
@@ -49,15 +57,19 @@ class CrudRelCompra(object):
 
     # update item referente a compra
     def updateItens(self):
+
         try:
-            # abrindo sessao
+
+            # Abrindo Sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # selecionando ID
+            # Selecionando ID
+
             row = sessao.query(RelacaoCompra).get(self.id)
 
-            # novos valores
+            # Novos Valores
+
             row.id_compra = self.idCompra
             row.id_produto = self.idProduto
             row.qtde = self.qtde
@@ -65,7 +77,7 @@ class CrudRelCompra(object):
             row.valor_total = self.valorTotal
             row.obs = self.obs
 
-            # executando a Query
+            # Executando a Query
             sessao.commit()
 
             # Fechando a Conexao

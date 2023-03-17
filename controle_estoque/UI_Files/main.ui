@@ -179,7 +179,7 @@ background: #7AB32E
       <string notr="true">color: #FFF</string>
      </property>
      <property name="text">
-      <string>JWA Tecnologia</string>
+      <string>Titulo</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -204,7 +204,7 @@ background: #7AB32E
       <string notr="true">color: #FFF</string>
      </property>
      <property name="text">
-      <string>Fazendo suas ideias acontecerem</string>
+      <string>Subtitulo</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

@@ -1,9 +1,14 @@
+# -*- coding: utf-8 -*-
 import re
+
 from PyQt5.QtCore import QByteArray, QBuffer, Qt
 from PyQt5.QtWidgets import QFileDialog
 from PyQt5.QtGui import QPixmap
+
+
 from Views.mainEmpresa import Ui_ct_empresa
 from Crud.CrudEmpresa import CrudEmpresa
+
 
 class MainEmpresa(Ui_ct_empresa):
 
@@ -37,7 +42,8 @@ class MainEmpresa(Ui_ct_empresa):
         # Set ID Empresa
         self.LastIdEmpresa()
 
-    # logo upload
+    # upload Logo
+
     def UploadLogo(self):
         Dialog = QFileDialog()
         Dialog.setOption(QFileDialog.DontUseNativeDialog, True)
@@ -56,7 +62,8 @@ class MainEmpresa(Ui_ct_empresa):
         self.bt_DelLogo.setHidden(True)
         self.bt_AddLogo.setVisible(True)
 
-    # auto selectempresa
+    # Auto SelectEmpresa
+
     def LastIdEmpresa(self):
         try:
             busca = CrudEmpresa()
@@ -65,7 +72,8 @@ class MainEmpresa(Ui_ct_empresa):
         except:
             self.tx_idEmpresa.setText(str(1))
 
-    # selecionar empresa na db
+    # Selecionando empresa no Db
+
     def SelectEmpresa(self):
         busca = CrudEmpresa()
         busca.idEmpresa = self.tx_idEmpresa.text()
@@ -100,27 +108,28 @@ class MainEmpresa(Ui_ct_empresa):
 
         pass
 
-    # cadastrar empresa
+    # Cadastrando Empresa
+
     def CadEmpresa(self):
-        inserir = CrudEmpresa()
-        inserir.id = self.tx_idEmpresa.text()
-        inserir.nomeFantasia = self.tx_NomeFantasia.text().upper()
-        inserir.razaoSocial = self.tx_RazaoSocial.text().upper()
-        inserir.cnpj = self.tx_Cnpj.text()
-        inserir.inscEstadual = self.tx_IE.text()
-        inserir.telefone = re.sub(
+        INSERI = CrudEmpresa()
+        INSERI.id = self.tx_idEmpresa.text()
+        INSERI.nomeFantasia = self.tx_NomeFantasia.text().upper()
+        INSERI.razaoSocial = self.tx_RazaoSocial.text().upper()
+        INSERI.cnpj = self.tx_Cnpj.text()
+        INSERI.inscEstadual = self.tx_IE.text()
+        INSERI.telefone = re.sub(
             '[^[0-9]', '', (self.tx_TelefoneEmpresa.text()))
-        inserir.email = self.tx_EmailEmpresa.text()
-        inserir.site = self.tx_SiteEmpresa.text()
-        inserir.obs = self.tx_ObsEmpresa.text().upper()
-        inserir.cep = re.sub('[^[0-9]', '', (self.tx_CepEmpresa.text()))
-        inserir.endereco = self.tx_Endereco.text().upper()
-        inserir.numero = self.tx_NumEmpresa.text()
-        inserir.bairro = self.tx_BairroEmpresa.text().upper()
-        inserir.cidade = self.tx_CidadeEmpresa.text().upper()
-        inserir.estado = self.tx_EstadoEmpresa.text().upper()
-        inserir.titulo = self.tx_Titulo.text()
-        inserir.subtitulo = self.tx_SubTitulo.text()
+        INSERI.email = self.tx_EmailEmpresa.text()
+        INSERI.site = self.tx_SiteEmpresa.text()
+        INSERI.obs = self.tx_ObsEmpresa.text().upper()
+        INSERI.cep = re.sub('[^[0-9]', '', (self.tx_CepEmpresa.text()))
+        INSERI.endereco = self.tx_Endereco.text().upper()
+        INSERI.numero = self.tx_NumEmpresa.text()
+        INSERI.bairro = self.tx_BairroEmpresa.text().upper()
+        INSERI.cidade = self.tx_CidadeEmpresa.text().upper()
+        INSERI.estado = self.tx_EstadoEmpresa.text().upper()
+        INSERI.titulo = self.tx_Titulo.text()
+        INSERI.subtitulo = self.tx_SubTitulo.text()
 
         if self.lb_LogoEmpresa.pixmap():
             image = QPixmap(self.lb_LogoEmpresa.pixmap())
@@ -128,11 +137,11 @@ class MainEmpresa(Ui_ct_empresa):
             buf = QBuffer(data)
             image.save(buf, 'PNG')
             logo = str(data.toBase64()).encode('utf8')[2:-1]
-            inserir.logo = logo
+            INSERI.logo = logo
         else:
-            inserir.logo = False
+            INSERI.logo = False
 
-        inserir.inseriEmpresa()
+        INSERI.inseriEmpresa()
         self.lb_NomeFantasia.setText(self.tx_Titulo.text())
-        self.lb_NomeFantasia2.setText(inserir.subtitulo)
-        self.setWindowTitle(inserir.titulo + " " + inserir.subtitulo)
+        self.lb_NomeFantasia2.setText(INSERI.subtitulo)
+        self.setWindowTitle(INSERI.titulo + " " + INSERI.subtitulo)

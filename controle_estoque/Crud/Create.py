@@ -1,9 +1,13 @@
+# coding=utf-8
 import sys
 import os
 import configparser
+
 from sqlalchemy.exc import ProgrammingError
+
 from Crud.core import Conexao, Base
 from Crud.Models import *
+
 
 class CreateDb(object):
     def __init__(self, dbhandler="", DbHost="", DbName="", DbUser="",
@@ -16,12 +20,12 @@ class CreateDb(object):
         self.erro = erro
         self.dbhandler = dbhandler
 
-        # caminho absoluto config.ini
+        # Caminho absoluto config.ini
         self.path = os.path.abspath(os.path.dirname(sys.argv[0]))
         config = configparser.ConfigParser()
         config.sections()
 
-        # buscando dados config.ini
+        # Buscando Dados config.ini
         if config.read(os.path.join(self.path, 'config.ini')):
             self.DbHost = config['DEFAULT']['DbHost']
             self.DbName = config['DEFAULT']['DbName']
@@ -30,7 +34,7 @@ class CreateDb(object):
 
     def createDB(self):
 
-        # criar db se nao tiver
+        # Caso banco não exista, Cria
         import mysql.connector
         try:
             conn = mysql.connector.connect(
@@ -44,9 +48,9 @@ class CreateDb(object):
 
         except mysql.connector.Error as err:
             if err.errno == mysql.connector.errorcode.ER_ACCESS_DENIED_ERROR:
-                self.erro = 1  # erro user e senha
+                self.erro = 1  # Erro User e Senha
             elif err.errno == mysql.connector.errorcode.ER_BAD_DB_ERROR:
-                self.erro = 2  # erro database inexistente
+                self.erro = 2  # erro banco de dados inexistente
             else:
                 self.erro == err
 

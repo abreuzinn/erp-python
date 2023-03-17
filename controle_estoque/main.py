@@ -1,11 +1,18 @@
+# -*- coding: utf-8 -*-
 import os
 import sys
 import random
 import webbrowser
+
+
 from PyQt5.QtCore import Qt
 from PyQt5 import QtGui, QtWidgets
+
 from jinja2 import Environment, FileSystemLoader
+
+
 from Crud.core import Conexao
+
 from login import MainLogin
 from Crud.Models import Empresa
 from Crud.CrudEmpresa import CrudEmpresa
@@ -28,7 +35,8 @@ from mainprodutos import MainProdutos
 from mainvendas import MainVendas
 from Views.main import Ui_MainWindow
 
-# icons
+
+# Icons
 import Images
 
 
@@ -42,104 +50,104 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow, MainHome, MainProdutos,
 
         self.setupUi(self)
 
-        self.centralizar()  # centrelizando na tela
+        self.centralizar()  # Centrelizando na tela
 
-        # background
+        # Background
         palete = QtGui.QPalette()
         image = QtGui.QPixmap(self.resourcepath('Images/bg.png'))
         brush = QtGui.QBrush(image)
         palete.setBrush(QtGui.QPalette.Background, brush)
         self.setPalette(palete)
 
-        # caminho absoluto
+        # Caminho Absoluto
         self.caminho = os.path.abspath(os.path.dirname(sys.argv[0]))
 
-        # icone dos botoes topo
+        # Icone dos botoes Topo
         self.IconeBotaoTopo(self.bt_Home, self.resourcepath(
-            'Images/home.png'))  # home
+            'Images/home.png'))  # HOme
 
         self.IconeBotaoTopo(self.bt_Exit, self.resourcepath(
-            'Images/exit.png'))  # sair
+            'Images/exit.png'))  # Sair
 
-        # icone botoes menu
+        # Icone botoes menu
         self.IconeBotaoMenu(self.bt_Clientes, self.resourcepath(
-            'Images/tag-new.png'))  # clientes
+            'Images/tag-new.png'))  # Clientes
         self.IconeBotaoMenu(self.bt_Vendas, self.resourcepath(
-            'Images/vendas.png'))  # vendas
+            'Images/vendas.png'))  # Vendas
         self.IconeBotaoMenu(self.bt_Fornecedor, self.resourcepath(
-            'Images/iconFornecedor.png'))  # fornecedor
+            'Images/iconFornecedor.png'))  # Fornecedor
         self.IconeBotaoMenu(self.bt_MainProdutos, self.resourcepath(
-            'Images/estoque.png'))  # produtos
+            'Images/estoque.png'))  # Produtos
         self.IconeBotaoMenu(self.bt_Compras, self.resourcepath(
-            'Images/ico-compras.png'))  # compras
+            'Images/ico-compras.png'))  # Compras
         self.IconeBotaoMenu(self.bt_Financeiro, self.resourcepath(
-            'Images/financeiro.png'))  # financeiro
+            'Images/financeiro.png'))  # Financeiro
         self.IconeBotaoMenu(self.bt_Conf, self.resourcepath(
-            'Images/conf.png'))  # configuracao
+            'Images/conf.png'))  # Configuracao
 
         """Ação dos Botões Botoes"""
-        # home
+        # Home
         self.bt_Home.clicked.connect(self.janelaHome)
 
-        # produtos
+        # Produtos
         self.bt_MainProdutos.clicked.connect(self.janelaProdutos)
 
-        # vendas
+        # Vendas
         self.bt_Vendas.clicked.connect(self.janelaVendas)
 
-        # clientes
+        # Clientes
         self.bt_Clientes.clicked.connect(self.janelaClientes)
 
-        # compras
+        # Compras
         self.bt_Compras.clicked.connect(self.janelaCompras)
 
-        # fornecedor
+        # Fornecedor
         self.bt_Fornecedor.clicked.connect(self.janelaFornecedor)
 
-        # financeiro
+        # Financeiro
         self.bt_Financeiro.clicked.connect(self.janelaFinanceiro)
 
-        # config
+        # Config
         self.bt_Conf.clicked.connect(self.janelaConfig)
 
-        # meus dados
+        # Meus dados
         self.bt_alterSenha.clicked.connect(self.editarUser)
 
-        # logout
+        # Logout
         self.bt_logout.clicked.connect(self.janelaLogin)
         """ Fim Botoes """
 
-        # setando data no Header
+        # Setando data no Header
         data = DataAtual()
         data.diaAtual()
         self.lb_Data.setText(data.diames)
         self.lb_DiaSemana.setText(data.diasemana)
 
-        # abrindo tela Login
+        # Abrindo tela Login
         self.janelaLogin()
 
-        # checando conexao com banco de dados
+        # Checando conexao com banco de dados
         self.DbCheck()  # Checando banco de dados
 
-    # caminho absoluto
+    # Caminho absoluto
 
     def resourcepath(self, relative_path):
         base_path = getattr(sys, '_MEIPASS', os.path.dirname(
             os.path.abspath(__file__)))
         return os.path.join(base_path, relative_path)
 
-    # centralizar janela na tela
+    # Centralizar Janela na Tela
     def centralizar(self):
-        # geometria tela principal
+        # geometry of the main window
         qr = self.frameGeometry()
-        # centralizar ponto telas
+        # center point of screen
         cp = QtWidgets.QDesktopWidget().availableGeometry().center()
-        # mover centro retangulo pro ponto central da tela
+        # move rectangle's center point to screen's center point
         qr.moveCenter(cp)
-        # esquerdo top retangulo vira esquerdo topo da tela centralizando
+        # top left of rectangle becomes top left of window centering it
         self.move(qr.topLeft())
 
-    # verificando banco de dados
+    # Verificando Banco de Dados
     def DbCheck(self):
 
         conecta = Conexao()
@@ -168,78 +176,77 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow, MainHome, MainProdutos,
                 botao.setDisabled(True)
             self.bt_Home.setDisabled(True)
 
-    """abrindo janelas externas"""
+    """Abrindo Janelas externas"""
 
-    # login
+    # Login
     def janelaLogin(self):
         self.LimpaFrame(self.ct_conteudo)
 
-        # limpando nome de usuario logado
+        # Limpando nome de usuário logado
         self.lb_userName.clear()
 
-        # desabilitando botao meus dados e logout
+        # Desabilitando Botao Meus Dados e Logout
         self.bt_alterSenha.setDisabled(True)
         self.bt_logout.setDisabled(True)
         self.bt_Home.setDisabled(True)
 
-        # ocultando botoes
+        # Ocultando botoes
         for filho in self.wd_menu.findChildren(QtWidgets.QPushButton):
             filho.setHidden(True)
 
-        # desabilitando botao Home
+        # Desabilitando botao Home
         # self.bt_Home.setDisabled(True)
         self.mainlogin(self.ct_conteudo)
 
-    # home
+    # Home
     def janelaHome(self):
         self.LimpaFrame(self.ct_conteudo)
         self.ativaBotoes(self.wd_menu)
         self.main_home(self.ct_conteudo)
 
-    # main Produtos
+    # Main Produtos
 
     def janelaProdutos(self):
         self.LimpaFrame(self.ct_conteudo)
         self.DesativaBotao(self.wd_menu, self.bt_MainProdutos)
         self.mainprodutos(self.ct_conteudo)
 
-    # main Vendas
+    # Main Vendas
     def janelaVendas(self):
         self.LimpaFrame(self.ct_conteudo)
         self.DesativaBotao(self.wd_menu, self.bt_Vendas)
         self.mainvendas(self.ct_conteudo)
 
-    # main Cliente
+    # Main Cliente
     def janelaClientes(self):
         self.LimpaFrame(self.ct_conteudo)
         self.DesativaBotao(self.wd_menu, self.bt_Clientes)
         self.mainclientes(self.ct_conteudo)
 
-    # main Fornecedor
+    # Main Fornecedor
     def janelaFornecedor(self):
         self.LimpaFrame(self.ct_conteudo)
         self.DesativaBotao(self.wd_menu, self.bt_Fornecedor)
         self.mainfornecedor(self.ct_conteudo)
 
-    # main Compras
+    # Main Compras
     def janelaCompras(self):
         self.LimpaFrame(self.ct_conteudo)
         self.DesativaBotao(self.wd_menu, self.bt_Compras)
         self.maincompras(self.ct_conteudo)
 
-    # main Financeiro
+    # Main Financeiro
     def janelaFinanceiro(self):
         self.LimpaFrame(self.ct_conteudo)
         self.DesativaBotao(self.wd_menu, self.bt_Financeiro)
         self.mainfinanceiro(self.ct_conteudo)
 
-    # main Configuração
+    # Main Configuração
     def janelaConfig(self):
         self.LimpaFrame(self.ct_conteudo)
         self.DesativaBotao(self.wd_menu, self.bt_Conf)
         self.mainconfig(self.ct_conteudo)
 
-    # editar user
     def editarUser(self):
         self.janelaConfig()
         self.selectUsuario(self.idUser)
@@ -249,8 +256,10 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow, MainHome, MainProdutos,
         self.cb_ativo.setDisabled(True)
         self.bt_Voltar.setHidden(True)
 
+    """ Fim conteudos Externos """
+
     """ Conteudos tabelas """
-    # conteudo Tabela centralizdo fonte padrao
+    # Conteudo Tabela Centralizdo fonte padrao
 
     def conteudoTabela(self, tabela, row, col, data):
         item = QtWidgets.QTableWidgetItem()
@@ -260,7 +269,7 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow, MainHome, MainProdutos,
         item.setText(data)
         tabela.setItem(row, col, item)
 
-    # conteudo tabela alinhado a esquerda
+    # Conteudo tabela alinhado a esquerda
     def conteudoTabelaLeft(self, tabela, row, col, data):
         item = QtWidgets.QTableWidgetItem()
         item.setTextAlignment(Qt.AlignJustify |
@@ -269,7 +278,7 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow, MainHome, MainProdutos,
         item.setText(data)
         tabela.setItem(row, col, item)
 
-    # botao Tabela
+    # Botão Tabela
     def botaoTabela(self, tabela, row, col, funcao, bg):
         item = QtWidgets.QPushButton()
         # item.setFixedWidth(30)
@@ -296,7 +305,7 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow, MainHome, MainProdutos,
         tabela.setCellWidget(row, col, item)
         item.clicked.connect(funcao)
 
-    # botão Remove Item
+    # Botão Remove Item
     def botaoRemoveItem(self, tabela, row, col, funcao, bg):
         item = QtWidgets.QPushButton()
         # item.setFixedWidth(30)

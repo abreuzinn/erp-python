@@ -1,11 +1,17 @@
+# -*- coding: utf-8 -*-
 import configparser
 import os
 import sys
+
+
 from Views.mainConfig import Ui_ct_MainConfig
 from mainempresa import MainEmpresa
 from maindbconf import MainDbConf
 from mainUsuario import Usuarios
+
+
 from Crud.CrudEmpresa import CrudEmpresa
+
 
 class MainConfig(Ui_ct_MainConfig, MainEmpresa, MainDbConf, Usuarios):
 
@@ -13,19 +19,19 @@ class MainConfig(Ui_ct_MainConfig, MainEmpresa, MainDbConf, Usuarios):
         super(MainConfig, self).setMainConfig(frame)
         self.frameMainConfig.show()
 
-        # janela empresa home
+        # Abrindo janela Empresa como primeira janela
         self.janelaConfEmpresa()
 
-        # botao empresa
+        # Botao Empresa
         self.bt_confEmpresa.clicked.connect(self.janelaConfEmpresa)
 
-        # botao usuario
+        # Botao Usuario
         self.bt_confUser.clicked.connect(self.janelaUsuarios)
 
-        # botao database
+        # Botao Bando de dados
         self.bt_confDB.clicked.connect(self.janelaDbConf)
 
-    # janela dados empresa
+    # janela Dados empresa
     def janelaConfEmpresa(self):
         self.LimpaFrame(self.ct_config)
         self.DesativaBotao(self.fr_menuConfig, self.bt_confEmpresa)

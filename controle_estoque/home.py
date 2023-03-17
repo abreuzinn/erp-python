@@ -1,11 +1,19 @@
+# -*- coding: utf-8 -*-
+
 from datetime import date
+
+
 from PyQt5.QtCore import Qt
+
+
 from Views.home import Ui_ct_Home
+
 from Crud.CrudVenda import CrudVenda
 from Crud.CrudProduto import CrudProduto
 from Crud.CrudCompra import CrudCompra
 from Crud.CrudContaAReceber import CrudContaAReceber
 from Crud.CrudContaAPagar import CrudContaAPagar
+
 
 class MainHome(Ui_ct_Home):
 
@@ -13,10 +21,10 @@ class MainHome(Ui_ct_Home):
         super(MainHome, self).setHome(frame)
         self.HomeFrame.show()
 
-        # data
+        # Data Inicio
         self.hoje = date.today()
 
-        # icon botoes menu
+        # Icone botoes menu
         self.IconeHome(self.bt_addItem, self.resourcepath(
             'Images/additem.svg'))
 
@@ -35,27 +43,27 @@ class MainHome(Ui_ct_Home):
         self.IconeHome(self.bt_apagarHoje,
                        self.resourcepath('Images/apagarhoje.svg'))
 
-        # ocultar campos
+        # Ocultando Campos provisoriamente
         self.lb_produtosAtivos_13.setHidden(True)
         self.label_16.setHidden(True)
         self.label_13.setHidden(True)
 
-        # botao add item
+        # Botao Add Item
         self.bt_addItem.clicked.connect(self.additem)
 
-        # botao nova compra
+        # Botao Nova Compra
         self.bt_addCompra.clicked.connect(self.novaCompra)
 
-        # janela pedidos e receber hj
+        # Janela pedidos a receber hoje
         self.bt_pedidosHoje.clicked.connect(self.pedidosAReceber)
 
-        # botao produtos
+        # Botao Produtos
         self.bt_produtosAtivos.clicked.connect(self.janelaProdutos)
 
-        # botao novo cliente
+        # Botao Novo CLiente
         self.bt_addCliente.clicked.connect(self.novoCliente)
 
-        # botao nova venda
+        # Botao Nova Venda
         self.bt_addVenda.clicked.connect(self.novaVenda)
 
         # Lista Vendido Hoje
