@@ -1,0 +1,7 @@
+verdinho		7AB32E
+ciano escuro	40a286
+
+ciano claro	00ffdd
+ciano escuro	00a892
+amarelo		D4B000
+amarelo escuro	877100
