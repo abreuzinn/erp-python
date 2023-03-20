@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # Form implementation generated from reading ui file 'mainFornecedor.ui',
 # licensing of 'mainFornecedor.ui' applies.
 #
@@ -9,7 +7,6 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 
 class Ui_ct_MainFornecedor(object):
     def setMainFornecedor(self, ct_MainFornecedor):
@@ -43,10 +40,10 @@ class Ui_ct_MainFornecedor(object):
         self.bt_AddNovoFornecedor.setContextMenuPolicy(
             QtCore.Qt.ActionsContextMenu)
         self.bt_AddNovoFornecedor.setStyleSheet("QPushButton {\n"
-                                                "background-color: #7AB32E;\n"
+                                                "background-color: #877100;\n"
                                                 " }\n"
                                                 "QPushButton:hover{\n"
-                                                "background-color: #40a286\n"
+                                                "background-color: #D4B000\n"
                                                 "}")
         self.bt_AddNovoFornecedor.setText("")
         self.bt_AddNovoFornecedor.setObjectName("bt_AddNovoFornecedor")

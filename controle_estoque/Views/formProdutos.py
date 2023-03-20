@@ -125,11 +125,11 @@ class Ui_ct_FormProdutos(object):
         font.setWeight(75)
         self.bt_AddCategoriaProduto.setFont(font)
         self.bt_AddCategoriaProduto.setStyleSheet("QPushButton{\n"
-                                                  "background: #7AB32E;\n"
+                                                  "background: #877100;\n"
                                                   "color: #FFF\n"
                                                   "}\n"
                                                   "QPushButton:hover{\n"
-                                                  "background-color: #40a286\n"
+                                                  "background-color: #D4B000\n"
                                                   "}")
         self.bt_AddCategoriaProduto.setText("")
         self.bt_AddCategoriaProduto.setObjectName("bt_AddCategoriaProduto")
@@ -182,11 +182,11 @@ class Ui_ct_FormProdutos(object):
         font.setWeight(75)
         self.bt_AddMarcaProduto.setFont(font)
         self.bt_AddMarcaProduto.setStyleSheet("QPushButton{\n"
-                                              "background: #7AB32E;\n"
+                                              "background: #877100;\n"
                                               "color: #FFF\n"
                                               "}\n"
                                               "QPushButton:hover{\n"
-                                              "background-color: #40a286\n"
+                                              "background-color: #D4B000\n"
                                               "}")
         self.bt_AddMarcaProduto.setText("")
         self.bt_AddMarcaProduto.setObjectName("bt_AddMarcaProduto")
@@ -438,7 +438,7 @@ class Ui_ct_FormProdutos(object):
                                                "color: #FFF\n"
                                                " }\n"
                                                "QPushButton:hover{\n"
-                                               "background-color: #40a286\n"
+                                               "background-color: #D4B000\n"
                                                "}")
         self.bt_CancelarProdutos.setIconSize(QtCore.QSize(75, 35))
         self.bt_CancelarProdutos.setObjectName("bt_CancelarProdutos")
@@ -457,11 +457,11 @@ class Ui_ct_FormProdutos(object):
         self.bt_SalvarProdutos.setContextMenuPolicy(
             QtCore.Qt.ActionsContextMenu)
         self.bt_SalvarProdutos.setStyleSheet("QPushButton {\n"
-                                             "background-color: #7AB32E;\n"
+                                             "background-color: #877100;\n"
                                              "color: #FFF\n"
                                              " }\n"
                                              "QPushButton:hover{\n"
-                                             "background-color: #40a286\n"
+                                             "background-color: #D4B000\n"
                                              "}")
         self.bt_SalvarProdutos.setIconSize(QtCore.QSize(75, 35))
         self.bt_SalvarProdutos.setObjectName("bt_SalvarProdutos")
@@ -509,7 +509,7 @@ class Ui_ct_FormProdutos(object):
         self.tx_PorcentagemVarejo.setStyleSheet("QLineEdit{\n"
                                                 "background: #FFF;\n"
                                                 "border-radius: 2px;\n"
-                                                "color: #7AB32E;\n"
+                                                "color: #877100;\n"
                                                 "font: 20px \"Arial\" ;\n"
                                                 "font-weight: bold\n"
                                                 "}\n"
@@ -536,7 +536,7 @@ class Ui_ct_FormProdutos(object):
                                       "font-size: 20px;\n"
                                       "font-family: \"Arial Unicode MS\";\n"
                                       "font-weight: bold;\n"
-                                      "color: #7AB32E\n"
+                                      "color: #877100\n"
                                       "}")
         self.lb_porcVar.setObjectName("lb_porcVar")
         self.lb_FormProdutos_16 = QtWidgets.QLabel(self.fr_FormProdutos)
@@ -563,7 +563,7 @@ class Ui_ct_FormProdutos(object):
                                        "font-size: 20px;\n"
                                        "font-family: \"Arial Unicode MS\";\n"
                                        "font-weight: bold;\n"
-                                       "color: #7AB32E\n"
+                                       "color: #877100\n"
                                        "}")
         self.lb_porcAtac.setObjectName("lb_porcAtac")
         self.tx_PorcentagemAtacado = QtWidgets.QLineEdit(self.fr_FormProdutos)
@@ -572,7 +572,7 @@ class Ui_ct_FormProdutos(object):
         self.tx_PorcentagemAtacado.setStyleSheet("QLineEdit{\n"
                                                  "background: #FFF;\n"
                                                  "border-radius: 2px;\n"
-                                                 "color: #7AB32E;\n"
+                                                 "color: #877100;\n"
                                                  "font: 20px \"Arial\" ;\n"
                                                  "font-weight: bold\n"
                                                  "}\n"
@@ -627,11 +627,11 @@ class Ui_ct_FormProdutos(object):
         font.setWeight(75)
         self.bt_CancelAddCatergoria.setFont(font)
         self.bt_CancelAddCatergoria.setStyleSheet("QPushButton{\n"
-                                                  "background: #7AB32E;\n"
+                                                  "background: #877100;\n"
                                                   "color: #FFF\n"
                                                   "}\n"
                                                   "QPushButton:hover{\n"
-                                                  "background-color: #40a286\n"
+                                                  "background-color: #D4B000\n"
                                                   "}")
         self.bt_CancelAddCatergoria.setText("")
         self.bt_CancelAddCatergoria.setObjectName("bt_CancelAddCatergoria")
@@ -644,11 +644,11 @@ class Ui_ct_FormProdutos(object):
         font.setWeight(75)
         self.bt_CalcelAddMarca.setFont(font)
         self.bt_CalcelAddMarca.setStyleSheet("QPushButton{\n"
-                                             "background: #7AB32E;\n"
+                                             "background: #877100;\n"
                                              "color: #FFF\n"
                                              "}\n"
                                              "QPushButton:hover{\n"
-                                             "background-color: #40a286\n"
+                                             "background-color: #D4B000\n"
                                              "}")
         self.bt_CalcelAddMarca.setText("")
         self.bt_CalcelAddMarca.setObjectName("bt_CalcelAddMarca")
@@ -661,11 +661,11 @@ class Ui_ct_FormProdutos(object):
         font.setWeight(75)
         self.bt_AddImagem.setFont(font)
         self.bt_AddImagem.setStyleSheet("QPushButton{\n"
-                                        "background: #7AB32E;\n"
+                                        "background: #877100;\n"
                                         "color: #FFF\n"
                                         "}\n"
                                         "QPushButton:hover{\n"
-                                        "background-color: #40a286\n"
+                                        "background-color: #D4B000\n"
                                         "}")
         self.bt_AddImagem.setText("")
         self.bt_AddImagem.setObjectName("bt_AddImagem")
@@ -678,11 +678,11 @@ class Ui_ct_FormProdutos(object):
         font.setWeight(75)
         self.bt_DelImagem.setFont(font)
         self.bt_DelImagem.setStyleSheet("QPushButton{\n"
-                                        "background: #7AB32E;\n"
+                                        "background: #877100;\n"
                                         "color: #FFF\n"
                                         "}\n"
                                         "QPushButton:hover{\n"
-                                        "background-color: #40a286\n"
+                                        "background-color: #D4B000\n"
                                         "}")
         self.bt_DelImagem.setText("")
         self.bt_DelImagem.setObjectName("bt_DelImagem")

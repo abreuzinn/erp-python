@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # Form implementation generated from reading ui file 'formFornecedor.ui',
 # licensing of 'formFornecedor.ui' applies.
 #
@@ -246,7 +244,7 @@ class Ui_ct_FormFornecedor(object):
 "color: #FFF\n"
 " }\n"
 "QPushButton:hover{\n"
-"background-color: #40a286\n"
+"background-color: #D4B000\n"
 "}")
         self.bt_Voltar.setIconSize(QtCore.QSize(75, 35))
         self.bt_Voltar.setObjectName("bt_Voltar")
@@ -262,11 +260,11 @@ class Ui_ct_FormFornecedor(object):
         self.bt_Salvar.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_Salvar.setContextMenuPolicy(QtCore.Qt.ActionsContextMenu)
         self.bt_Salvar.setStyleSheet("QPushButton {\n"
-"background-color: #7AB32E;\n"
+"background-color: #877100;\n"
 "color: #FFF\n"
 " }\n"
 "QPushButton:hover{\n"
-"background-color: #40a286\n"
+"background-color: #D4B000\n"
 "}")
         self.bt_Salvar.setIconSize(QtCore.QSize(75, 35))
         self.bt_Salvar.setObjectName("bt_Salvar")
@@ -493,11 +491,11 @@ class Ui_ct_FormFornecedor(object):
         font.setBold(True)
         self.bt_BuscaCep.setFont(font)
         self.bt_BuscaCep.setStyleSheet("QPushButton{\n"
-"background: #7AB32E;\n"
+"background: #877100;\n"
 "color: #FFF\n"
 "}\n"
 "QPushButton:hover{\n"
-"background-color: #40a286\n"
+"background-color: #D4B000\n"
 "}")
         self.bt_BuscaCep.setText("")
         self.bt_BuscaCep.setObjectName("bt_BuscaCep")

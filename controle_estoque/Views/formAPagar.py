@@ -1,9 +1,7 @@
-# -*- coding: utf-8 -*-
-
 # Form implementation generated from reading ui file 'formAPagar.ui',
 # licensing of 'formAPagar.ui' applies.
 #
-# Created: Fri Mar 15 09:21:21 2019
+# Created: Fri Mar 15 09:21:21 2023
 #      by: PyQt5-uic  running on PyQt5 5.12.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -192,11 +190,11 @@ class Ui_ct_FormPagar(object):
         font.setBold(True)
         self.bt_AddCategoriaProduto.setFont(font)
         self.bt_AddCategoriaProduto.setStyleSheet("QPushButton{\n"
-"background: #7AB32E;\n"
+"background: #877100;\n"
 "color: #FFF\n"
 "}\n"
 "QPushButton:hover{\n"
-"background-color: #40a286\n"
+"background-color: #D4B000\n"
 "}")
         self.bt_AddCategoriaProduto.setText("")
         self.bt_AddCategoriaProduto.setObjectName("bt_AddCategoriaProduto")
@@ -209,11 +207,11 @@ class Ui_ct_FormPagar(object):
         font.setBold(True)
         self.bt_CancelAddCatergoria.setFont(font)
         self.bt_CancelAddCatergoria.setStyleSheet("QPushButton{\n"
-"background: #7AB32E;\n"
+"background: #877100;\n"
 "color: #FFF\n"
 "}\n"
 "QPushButton:hover{\n"
-"background-color: #40a286\n"
+"background-color: #D4B000\n"
 "}")
         self.bt_CancelAddCatergoria.setText("")
         self.bt_CancelAddCatergoria.setObjectName("bt_CancelAddCatergoria")
@@ -456,7 +454,7 @@ class Ui_ct_FormPagar(object):
 " }\n"
 "QComboBox QAbstractItemView {\n"
 "    border: 1px solid darkgray;\n"
-"    selection-background-color: #40a286;\n"
+"    selection-background-color: #D4B000;\n"
 "color: #000;\n"
 "font: 10px \"Arial\" ;\n"
 "text-transform: uppercase;\n"
@@ -488,13 +486,13 @@ class Ui_ct_FormPagar(object):
         self.bt_receber.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_receber.setContextMenuPolicy(QtCore.Qt.ActionsContextMenu)
         self.bt_receber.setStyleSheet("QPushButton {\n"
-"background-color: #7AB32E;\n"
+"background-color: #877100;\n"
 "color: #FFF;\n"
 "border: none;\n"
 "border-radius: 2px\n"
 " }\n"
 "QPushButton:hover{\n"
-"background-color: #40a286\n"
+"background-color: #D4B000\n"
 "}")
         self.bt_receber.setIconSize(QtCore.QSize(75, 35))
         self.bt_receber.setObjectName("bt_receber")
@@ -518,7 +516,7 @@ class Ui_ct_FormPagar(object):
 "border-radius: 2px\n"
 " }\n"
 "QPushButton:hover{\n"
-"background-color: #40a286\n"
+"background-color: #D4B000\n"
 "}")
         self.bt_PrintRecibo.setIconSize(QtCore.QSize(75, 35))
         self.bt_PrintRecibo.setObjectName("bt_PrintRecibo")
@@ -604,7 +602,7 @@ class Ui_ct_FormPagar(object):
 "color: #FFF\n"
 "}\n"
 "QPushButton:hover{\n"
-"background-color: #40a286\n"
+"background-color: #D4B000\n"
 "}")
         self.bt_Voltar.setIconSize(QtCore.QSize(75, 35))
         self.bt_Voltar.setObjectName("bt_Voltar")
@@ -620,11 +618,11 @@ class Ui_ct_FormPagar(object):
         self.bt_Salvar.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_Salvar.setContextMenuPolicy(QtCore.Qt.ActionsContextMenu)
         self.bt_Salvar.setStyleSheet("QPushButton {\n"
-"background-color: #7AB32E;\n"
+"background-color: #877100;\n"
 "color: #FFF\n"
 " }\n"
 "QPushButton:hover{\n"
-"background-color: #40a286\n"
+"background-color: #D4B000\n"
 "}")
         self.bt_Salvar.setIconSize(QtCore.QSize(75, 35))
         self.bt_Salvar.setObjectName("bt_Salvar")
@@ -645,7 +643,7 @@ class Ui_ct_FormPagar(object):
 "color: #FFF\n"
 " }\n"
 "QPushButton:hover{\n"
-"background-color: #40a286\n"
+"background-color: #D4B000\n"
 "}")
         self.bt_Imprimir.setIconSize(QtCore.QSize(75, 35))
         self.bt_Imprimir.setObjectName("bt_Imprimir")

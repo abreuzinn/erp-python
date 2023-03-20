@@ -1,19 +1,11 @@
-# -*- coding: utf-8 -*-
-
 from datetime import date
-
-
 from PyQt5.QtCore import Qt
-
-
 from Views.home import Ui_ct_Home
-
 from Crud.CrudVenda import CrudVenda
 from Crud.CrudProduto import CrudProduto
 from Crud.CrudCompra import CrudCompra
 from Crud.CrudContaAReceber import CrudContaAReceber
 from Crud.CrudContaAPagar import CrudContaAPagar
-
 
 class MainHome(Ui_ct_Home):
 

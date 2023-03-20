@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'home.ui',
 # licensing of 'home.ui' applies.
 #
-# Created: Mon Mar 18 01:06:11 2019
+# Created: Mon Mar 18 01:06:11 2023
 #      by: PyQt5-uic  running on PyQt5 5.12.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -42,14 +42,14 @@ class Ui_ct_Home(object):
         self.bt_addCompra.setStyleSheet("QPushButton{\n"
 "border: none;\n"
 "color: #FFF;\n"
-"background: #7AB32E ;\n"
+"background: #D4B000 ;\n"
 "border-radius: 15px\n"
 "}\n"
 "QPushButton:hover {\n"
-"background: #40A286 \n"
+"background: #877100 \n"
 "}\n"
 "QPushButton:disabled {\n"
-"background: #7AB32E\n"
+"background: #D4B000\n"
 "}")
         self.bt_addCompra.setText("")
         self.bt_addCompra.setFlat(True)
@@ -68,14 +68,14 @@ class Ui_ct_Home(object):
         self.bt_addItem.setStyleSheet("QPushButton{\n"
 "border: none;\n"
 "color: #FFF;\n"
-"background: #7AB32E ;\n"
+"background: #D4B000 ;\n"
 "border-radius: 15px\n"
 "}\n"
 "QPushButton:hover {\n"
-"background: #40A286 \n"
+"background: #877100 \n"
 "}\n"
 "QPushButton:disabled {\n"
-"background: #7AB32E\n"
+"background: #D4B000\n"
 "}")
         self.bt_addItem.setText("")
         self.bt_addItem.setFlat(True)
@@ -175,13 +175,13 @@ class Ui_ct_Home(object):
         self.bt_estoqueBaixo.setCursor(QtCore.Qt.PointingHandCursor)
         self.bt_estoqueBaixo.setStyleSheet("QPushButton {\n"
 "background: none;\n"
-"color: #ffff00;\n"
+"color: #00ffdd;\n"
 "text-align: right\n"
 "}\n"
 "\n"
 "QPushButton:hover{\n"
 "color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                       stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"                                       stop: 0 #dadbde, stop: 1 #00a892);\n"
 "}\n"
 "QPushButton:pressed {\n"
 "     background: none;\n"
@@ -208,13 +208,13 @@ class Ui_ct_Home(object):
         self.bt_pedidosHoje.setCursor(QtCore.Qt.PointingHandCursor)
         self.bt_pedidosHoje.setStyleSheet("QPushButton {\n"
 "background: none;\n"
-"color: #ffff00;\n"
+"color: #00ffdd;\n"
 "text-align: right\n"
 "}\n"
 "\n"
 "QPushButton:hover{\n"
 "color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                       stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"                                       stop: 0 #dadbde, stop: 1 #00a892);\n"
 "}\n"
 "QPushButton:pressed {\n"
 "     background: none;\n"
@@ -241,13 +241,13 @@ class Ui_ct_Home(object):
         self.bt_produtosAtivos.setCursor(QtCore.Qt.PointingHandCursor)
         self.bt_produtosAtivos.setStyleSheet("QPushButton {\n"
 "background: none;\n"
-"color: #ffff00;\n"
+"color: #00ffdd;\n"
 "text-align: center\n"
 "}\n"
 "\n"
 "QPushButton:hover{\n"
 "color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                       stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"                                       stop: 0 #dadbde, stop: 1 #00a892);\n"
 "}\n"
 "QPushButton:pressed {\n"
 "     background: none;\n"
@@ -287,14 +287,14 @@ class Ui_ct_Home(object):
         self.bt_addCliente.setStyleSheet("QPushButton{\n"
 "border: none;\n"
 "color: #FFF;\n"
-"background: #7AB32E ;\n"
+"background: #D4B000 ;\n"
 "border-radius: 15px\n"
 "}\n"
 "QPushButton:hover {\n"
-"background: #40A286 \n"
+"background: #877100 \n"
 "}\n"
 "QPushButton:disabled {\n"
-"background: #7AB32E\n"
+"background: #D4B000\n"
 "}")
         self.bt_addCliente.setText("")
         self.bt_addCliente.setFlat(True)
@@ -313,14 +313,14 @@ class Ui_ct_Home(object):
         self.bt_addVenda.setStyleSheet("QPushButton{\n"
 "border: none;\n"
 "color: #FFF;\n"
-"background: #7AB32E ;\n"
+"background: #D4B000 ;\n"
 "border-radius: 15px\n"
 "}\n"
 "QPushButton:hover {\n"
-"background: #40A286 \n"
+"background: #877100 \n"
 "}\n"
 "QPushButton:disabled {\n"
-"background: #7AB32E\n"
+"background: #D4B000\n"
 "}")
         self.bt_addVenda.setText("")
         self.bt_addVenda.setFlat(True)
@@ -414,13 +414,13 @@ class Ui_ct_Home(object):
         self.bt_vendidoHoje.setCursor(QtCore.Qt.PointingHandCursor)
         self.bt_vendidoHoje.setStyleSheet("QPushButton {\n"
 "background: none;\n"
-"color: #ffff00;\n"
+"color: #00ffdd;\n"
 "text-align: left\n"
 "}\n"
 "\n"
 "QPushButton:hover{\n"
 "color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                       stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"                                       stop: 0 #dadbde, stop: 1 #00a892);\n"
 "}\n"
 "QPushButton:pressed {\n"
 "     background: none;\n"
@@ -447,13 +447,13 @@ class Ui_ct_Home(object):
         self.bt_vendidoMes.setCursor(QtCore.Qt.PointingHandCursor)
         self.bt_vendidoMes.setStyleSheet("QPushButton {\n"
 "background: none;\n"
-"color: #ffff00;\n"
+"color: #00ffdd;\n"
 "text-align: left\n"
 "}\n"
 "\n"
 "QPushButton:hover{\n"
 "color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                       stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"                                       stop: 0 #dadbde, stop: 1 #00a892);\n"
 "}\n"
 "QPushButton:pressed {\n"
 "     background: none;\n"
@@ -480,13 +480,13 @@ class Ui_ct_Home(object):
         self.bt_clientesAtendidos.setCursor(QtCore.Qt.PointingHandCursor)
         self.bt_clientesAtendidos.setStyleSheet("QPushButton {\n"
 "background: none;\n"
-"color: #ffff00;\n"
+"color: #00ffdd;\n"
 "text-align: center\n"
 "}\n"
 "\n"
 "QPushButton:hover{\n"
 "color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                       stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"                                       stop: 0 #dadbde, stop: 1 #00a892);\n"
 "}\n"
 "QPushButton:pressed {\n"
 "     background: none;\n"
@@ -526,14 +526,14 @@ class Ui_ct_Home(object):
         self.bt_apagarHoje.setStyleSheet("QPushButton{\n"
 "border: none;\n"
 "color: #FFF;\n"
-"background: #7AB32E ;\n"
+"background: #D4B000 ;\n"
 "border-radius: 15px\n"
 "}\n"
 "QPushButton:hover {\n"
-"background: #40A286 \n"
+"background: #877100 \n"
 "}\n"
 "QPushButton:disabled {\n"
-"background: #7AB32E\n"
+"background: #D4B000\n"
 "}")
         self.bt_apagarHoje.setText("")
         self.bt_apagarHoje.setFlat(True)
@@ -552,14 +552,14 @@ class Ui_ct_Home(object):
         self.bt_areceberHoje.setStyleSheet("QPushButton{\n"
 "border: none;\n"
 "color: #FFF;\n"
-"background: #7AB32E ;\n"
+"background: #D4B000 ;\n"
 "border-radius: 15px\n"
 "}\n"
 "QPushButton:hover {\n"
-"background: #40A286 \n"
+"background: #877100 \n"
 "}\n"
 "QPushButton:disabled {\n"
-"background: #7AB32E\n"
+"background: #D4B000\n"
 "}")
         self.bt_areceberHoje.setText("")
         self.bt_areceberHoje.setFlat(True)
@@ -759,10 +759,10 @@ class Ui_ct_Home(object):
         self.label_12.setText(QtWidgets.QApplication.translate("ct_Home", "CLIENTES", None, -1))
         self.lb_mesAtual.setText(QtWidgets.QApplication.translate("ct_Home", "VENDIDO EM SETEMBRO", None, -1))
         self.lb_produtosAtivos_4.setText(QtWidgets.QApplication.translate("ct_Home", "<span style=\"font-family:\'Arial\'; font-size:15px;\n"
-"                font-weight: bold;color:#ffff00; \">R$</span>", None, -1))
+"                font-weight: bold;color:#00ffdd; \">R$</span>", None, -1))
         self.label_15.setText(QtWidgets.QApplication.translate("ct_Home", "VENDIDO HOJE", None, -1))
         self.lb_produtosAtivos_6.setText(QtWidgets.QApplication.translate("ct_Home", "<span style=\"font-family:\'Arial\'; font-size:15px;\n"
-"                font-weight: bold;color:#ffff00; \">R$</span>", None, -1))
+"                font-weight: bold;color:#00ffdd; \">R$</span>", None, -1))
         self.bt_apagarHoje.setToolTip(QtWidgets.QApplication.translate("ct_Home", "<html><head/><body><p>Conta a pagar hoje</p></body></html>", None, -1))
         self.bt_apagarHoje.setShortcut(QtWidgets.QApplication.translate("ct_Home", "F7", None, -1))
         self.bt_areceberHoje.setToolTip(QtWidgets.QApplication.translate("ct_Home", "<html><head/><body><p>Conta a receber hoje</p></body></html>", None, -1))
@@ -772,10 +772,10 @@ class Ui_ct_Home(object):
         self.label_16.setText(QtWidgets.QApplication.translate("ct_Home", "SALDO", None, -1))
         self.label_17.setText(QtWidgets.QApplication.translate("ct_Home", "A PAGAR HOJE", None, -1))
         self.lb_produtosAtivos_9.setText(QtWidgets.QApplication.translate("ct_Home", "<span style=\"font-family:\'Arial\'; font-size:15px;\n"
-"                font-weight: bold;color:#ffff00; \">R$</span>", None, -1))
+"                font-weight: bold;color:#00ffdd; \">R$</span>", None, -1))
         self.label_18.setText(QtWidgets.QApplication.translate("ct_Home", "A RECEBER HOJE", None, -1))
         self.lb_produtosAtivos_11.setText(QtWidgets.QApplication.translate("ct_Home", "<span style=\"font-family:\'Arial\'; font-size:15px;\n"
-"                font-weight: bold;color:#ffff00; \">R$</span>", None, -1))
+"                font-weight: bold;color:#00ffdd; \">R$</span>", None, -1))
         self.lb_produtosAtivos_13.setText(QtWidgets.QApplication.translate("ct_Home", "<span style=\"font-family:\'Arial\'; font-size:15px;\n"
-"                font-weight: bold;color:#ffff00; \">R$</span>", None, -1))
+"                font-weight: bold;color:#00ffdd; \">R$</span>", None, -1))
 

@@ -1,14 +1,10 @@
-# -*- coding: utf-8 -*-
-
 # Form implementation generated from reading ui file 'login.ui'
 #
 # Created by: PyQt5 UI code generator 5.12.1
 #
 # WARNING! All changes made in this file will be lost!
 
-
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 
 class Ui_ct_login(object):
     def setLogin(self, ct_login):
@@ -99,11 +95,11 @@ class Ui_ct_login(object):
         self.bt_login.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_login.setContextMenuPolicy(QtCore.Qt.ActionsContextMenu)
         self.bt_login.setStyleSheet("QPushButton {\n"
-                                    "background-color: #7AB32E;\n"
+                                    "background-color: #877100;\n"
                                     "color: #FFF\n"
                                     " }\n"
                                     "QPushButton:hover{\n"
-                                    "background-color: #40a286\n"
+                                    "background-color: #D4B000\n"
                                     "}")
         self.bt_login.setIconSize(QtCore.QSize(75, 35))
         self.bt_login.setObjectName("bt_login")

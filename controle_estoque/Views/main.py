@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # Form implementation generated from reading ui file 'main.ui'
 #
 # Created by: PyQt5 UI code generator 5.12.1
@@ -7,7 +5,6 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -73,7 +70,7 @@ class Ui_MainWindow(object):
                                    "color: #FFF\n"
                                    "}\n"
                                    "QPushButton:hover {\n"
-                                   "background: #7AB32E\n"
+                                   "background: #877100\n"
                                    "}")
         self.bt_Home.setText("")
         icon1 = QtGui.QIcon()
@@ -113,7 +110,7 @@ class Ui_MainWindow(object):
                                    "color: #FFF\n"
                                    "}\n"
                                    "QPushButton:hover {\n"
-                                   "background: #7AB32E\n"
+                                   "background: #877100\n"
                                    "}")
         self.bt_Exit.setText("")
         self.bt_Exit.setFlat(True)
@@ -180,7 +177,7 @@ class Ui_MainWindow(object):
         self.bt_alterSenha.setObjectName("bt_alterSenha")
         self.wd_menu = QtWidgets.QWidget(self.centralwidget)
         self.wd_menu.setGeometry(QtCore.QRect(0, 60, 1000, 40))
-        self.wd_menu.setStyleSheet("background: #40a286")
+        self.wd_menu.setStyleSheet("background: #877100")
         self.wd_menu.setObjectName("wd_menu")
         self.bt_MainProdutos = QtWidgets.QPushButton(self.wd_menu)
         self.bt_MainProdutos.setGeometry(QtCore.QRect(420, 0, 140, 40))
@@ -193,15 +190,15 @@ class Ui_MainWindow(object):
         self.bt_MainProdutos.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_MainProdutos.setAutoFillBackground(False)
         self.bt_MainProdutos.setStyleSheet("QPushButton{\n"
-                                           "background: 40A286 ;\n"
+                                           "background: #877100 ;\n"
                                            "border: none;\n"
                                            "color: #FFF\n"
                                            "}\n"
                                            "QPushButton:hover {\n"
-                                           "background: #7AB32E\n"
+                                           "background: #D4B000\n"
                                            "}\n"
                                            "QPushButton:disabled {\n"
-                                           "background: #7AB32E\n"
+                                           "background: #D4B000\n"
                                            "}")
         self.bt_MainProdutos.setFlat(True)
         self.bt_MainProdutos.setObjectName("bt_MainProdutos")
@@ -215,15 +212,15 @@ class Ui_MainWindow(object):
         self.bt_Vendas.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_Vendas.setAutoFillBackground(False)
         self.bt_Vendas.setStyleSheet("QPushButton{\n"
-                                     "background: 40A286 ;\n"
+                                     "background: #877100 ;\n"
                                      "border: none;\n"
                                      "color: #FFF\n"
                                      "}\n"
                                      "QPushButton:hover {\n"
-                                     "background: #7AB32E\n"
+                                     "background: #D4B000\n"
                                      "}\n"
                                      "QPushButton:disabled {\n"
-                                     "background: #7AB32E\n"
+                                     "background: #D4B000\n"
                                      "}")
         self.bt_Vendas.setFlat(True)
         self.bt_Vendas.setObjectName("bt_Vendas")
@@ -237,15 +234,15 @@ class Ui_MainWindow(object):
         self.bt_Compras.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_Compras.setAutoFillBackground(False)
         self.bt_Compras.setStyleSheet("QPushButton{\n"
-                                      "background: 40A286 ;\n"
+                                      "background: #877100 ;\n"
                                       "border: none;\n"
                                       "color: #FFF\n"
                                       "}\n"
                                       "QPushButton:hover {\n"
-                                      "background: #7AB32E\n"
+                                      "background: #D4B000\n"
                                       "}\n"
                                       "QPushButton:disabled {\n"
-                                      "background: #7AB32E\n"
+                                      "background: #D4B000\n"
                                       "}")
         self.bt_Compras.setFlat(True)
         self.bt_Compras.setObjectName("bt_Compras")
@@ -260,15 +257,15 @@ class Ui_MainWindow(object):
         self.bt_Financeiro.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_Financeiro.setAutoFillBackground(False)
         self.bt_Financeiro.setStyleSheet("QPushButton{\n"
-                                         "background: 40A286 ;\n"
+                                         "background: #877100 ;\n"
                                          "border: none;\n"
                                          "color: #FFF\n"
                                          "}\n"
                                          "QPushButton:hover {\n"
-                                         "background: #7AB32E\n"
+                                         "background: #D4B000\n"
                                          "}\n"
                                          "QPushButton:disabled {\n"
-                                         "background: #7AB32E\n"
+                                         "background: #D4B000\n"
                                          "}")
         self.bt_Financeiro.setFlat(True)
         self.bt_Financeiro.setObjectName("bt_Financeiro")
@@ -282,15 +279,15 @@ class Ui_MainWindow(object):
         self.bt_Conf.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_Conf.setAutoFillBackground(False)
         self.bt_Conf.setStyleSheet("QPushButton{\n"
-                                   "background: 40A286 ;\n"
+                                   "background: #877100 ;\n"
                                    "border: none;\n"
                                    "color: #FFF\n"
                                    "}\n"
                                    "QPushButton:hover {\n"
-                                   "background: #7AB32E\n"
+                                   "background: #D4B000\n"
                                    "}\n"
                                    "QPushButton:disabled {\n"
-                                   "background: #7AB32E\n"
+                                   "background: #D4B000\n"
                                    "}")
         self.bt_Conf.setFlat(True)
         self.bt_Conf.setObjectName("bt_Conf")
@@ -304,15 +301,15 @@ class Ui_MainWindow(object):
         self.bt_Clientes.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_Clientes.setAutoFillBackground(False)
         self.bt_Clientes.setStyleSheet("QPushButton{\n"
-                                       "background: 40A286 ;\n"
+                                       "background: #877100 ;\n"
                                        "border: none;\n"
                                        "color: #FFF\n"
                                        "}\n"
                                        "QPushButton:hover {\n"
-                                       "background: #7AB32E\n"
+                                       "background: #D4B000\n"
                                        "}\n"
                                        "QPushButton:disabled {\n"
-                                       "background: #7AB32E\n"
+                                       "background: #D4B000\n"
                                        "}\n"
                                        "QPushButton::menu-indicator {\n"
                                        "     image: url(\'down.png\');\n"
@@ -332,15 +329,15 @@ class Ui_MainWindow(object):
         self.bt_Fornecedor.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_Fornecedor.setAutoFillBackground(False)
         self.bt_Fornecedor.setStyleSheet("QPushButton{\n"
-                                         "background: 40A286 ;\n"
+                                         "background: #877100 ;\n"
                                          "border: none;\n"
                                          "color: #FFF\n"
                                          "}\n"
                                          "QPushButton:hover {\n"
-                                         "background: #7AB32E\n"
+                                         "background: #D4B000\n"
                                          "}\n"
                                          "QPushButton:disabled {\n"
-                                         "background: #7AB32E\n"
+                                         "background: #D4B000\n"
                                          "}")
         self.bt_Fornecedor.setFlat(True)
         self.bt_Fornecedor.setObjectName("bt_Fornecedor")
@@ -358,7 +355,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate(
-            "MainWindow", "Azul e Rosa Personalizados"))
+            "MainWindow", "Título Subtítulo"))
         self.lb_Data.setText(_translate("MainWindow", "25/11"))
         self.lb_DiaSemana.setText(_translate("MainWindow", "DOMINGO"))
         self.bt_Home.setToolTip(_translate("MainWindow", "Tela Inicial"))

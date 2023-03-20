@@ -31,7 +31,6 @@ from Views.main import Ui_MainWindow
 # Icons
 import Images
 
-
 class Main(QtWidgets.QMainWindow, Ui_MainWindow, MainHome, MainProdutos,
            Funcao, MainVendas, MainClientes, MainCompras, MainFinanceiro,
            MainFornecedor, MainConfig, Financeiro, Comercial, Fornecedor,
@@ -286,7 +285,7 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow, MainHome, MainProdutos,
                            "font: 10px \"Tahoma\" Bold\n"
                            "}\n"
                            "QPushButton:hover{\n"
-                           "background-color: #40a286\n"
+                           "background-color: #D4B000\n"
                            "}")
         item.setText("EDITAR")
         icon1 = QtGui.QIcon()
@@ -311,7 +310,7 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow, MainHome, MainProdutos,
                            "padding: 2px;\n"
                            "}\n"
                            "QPushButton:hover{\n"
-                           "background-color: #40a286\n"
+                           "background-color: #D4B000\n"
                            "}")
         item.setText("")
         icon1 = QtGui.QIcon()
@@ -401,7 +400,7 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow, MainHome, MainProdutos,
         item.setStyleSheet('background: #FFF;')
         html = ("""
                <span style="font-family:'Arial'; font-size:30px; 
-               font-weight: bold;color:#7AB32E ">{}</span><br/>
+               font-weight: bold;color:#877100 ">{}</span><br/>
                """).format(id)
         item.setText(html)
         tabela.setCellWidget(row, col, item)
@@ -418,7 +417,7 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow, MainHome, MainProdutos,
         item.setFocusPolicy(Qt.NoFocus)
         item.setFlat(Qt.NoItemFlags)
         item.setStyleSheet("QPushButton{\n"
-                           "background-color: #7AB32E;\n"
+                           "background-color: #877100;\n"
                            "border-radius: 2px;\n"
                            "padding: 2px;\n"
                            "border: none;\n"
@@ -426,7 +425,7 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow, MainHome, MainProdutos,
                            "font: 10px \"Arial\";\n"
                            "}\n"
                            "QPushButton:hover{\n"
-                           "background-color: #40a286\n"
+                           "background-color: #D4B000\n"
                            "}"
                            )
         item.setText(texto)
@@ -532,7 +531,7 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow, MainHome, MainProdutos,
 
     def StatusStoque(self, qtde, minimo):
         if qtde > minimo:
-            cor = "#7AB32E"
+            cor = "#877100"
         elif qtde <= minimo:
             cor = "#e69822"
         else:
@@ -544,12 +543,12 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow, MainHome, MainProdutos,
     def StatusEntrega(self, *args):
         if len(args) > 1:
             if args[0] == 1 and args[1] == 1:
-                cor = "#7AB32E"
+                cor = "#877100"
             else:
                 cor = "#e69822"
         else:
             if args[0] == 1:
-                cor = "#7AB32E"
+                cor = "#877100"
             elif args[0] == 2:
                 cor = "#e69822"
             else:

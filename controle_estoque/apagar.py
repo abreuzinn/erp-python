@@ -1,19 +1,12 @@
-# -*- codind: utf-8 -*-
 from functools import partial
 from datetime import date
-
-
 from PyQt5.QtCore import QDate, Qt, QUrl
 from PyQt5.QtWebEngineWidgets import QWebEngineView
-
-
 from Views.APagar import Ui_ct_APagar
 from Views.formAPagar import Ui_ct_FormPagar
-
 from Crud.CrudContaAPagar import CrudContaAPagar
 from Crud.CrudCatAPagar import CrudCatAPagar
 from Funcoes.extenso import retorno
-
 
 class MainAPagar(Ui_ct_APagar, Ui_ct_FormPagar):
     def mainAPagar(self, frame):

@@ -1,21 +1,14 @@
-# -*- coding: utf-8 -*-
 from functools import partial
 import re
-
-
 from PyQt5 import QtCore
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 from jinja2 import Environment, FileSystemLoader
-
-
 from Views.mainFornecedor import Ui_ct_MainFornecedor
 from Views.formFornecedor import Ui_ct_FormFornecedor
 from Crud.CrudFornecedor import CrudFornecedor
 from Crud.CrudCompra import CrudCompra
 
-
 class MainFornecedor(Ui_ct_MainFornecedor, Ui_ct_FormFornecedor):
-
     def mainfornecedor(self, frame):
         super(MainFornecedor, self).setMainFornecedor(frame)
         self.frameMainFornecedor.show()

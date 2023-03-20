@@ -1,9 +1,7 @@
-# -*- coding: utf-8 -*-
-
 # Form implementation generated from reading ui file 'formUsuario.ui',
 # licensing of 'formUsuario.ui' applies.
 #
-# Created: Fri Mar 22 14:46:35 2019
+# Created: Fri Mar 19 14:46:35 2023
 #      by: PyQt5-uic  running on PyQt5 5.12.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -98,11 +96,11 @@ class Ui_ct_FormUsuario(object):
         font.setBold(True)
         self.bt_BuscaCep.setFont(font)
         self.bt_BuscaCep.setStyleSheet("QPushButton{\n"
-"background: #7AB32E;\n"
+"background: #877100;\n"
 "color: #FFF\n"
 "}\n"
 "QPushButton:hover{\n"
-"background-color: #40a286\n"
+"background-color: #D4B000\n"
 "}")
         self.bt_BuscaCep.setText("")
         self.bt_BuscaCep.setObjectName("bt_BuscaCep")
@@ -305,11 +303,11 @@ class Ui_ct_FormUsuario(object):
         self.bt_salvarUsuario.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_salvarUsuario.setContextMenuPolicy(QtCore.Qt.ActionsContextMenu)
         self.bt_salvarUsuario.setStyleSheet("QPushButton {\n"
-"background-color: #7AB32E;\n"
+"background-color: #877100;\n"
 "color: #FFF\n"
 " }\n"
 "QPushButton:hover{\n"
-"background-color: #40a286\n"
+"background-color: #D4B000\n"
 "}")
         self.bt_salvarUsuario.setIconSize(QtCore.QSize(75, 35))
         self.bt_salvarUsuario.setObjectName("bt_salvarUsuario")
@@ -329,7 +327,7 @@ class Ui_ct_FormUsuario(object):
 "color: #FFF\n"
 " }\n"
 "QPushButton:hover{\n"
-"background-color: #40a286\n"
+"background-color: #D4B000\n"
 "}")
         self.bt_Voltar.setIconSize(QtCore.QSize(75, 35))
         self.bt_Voltar.setObjectName("bt_Voltar")

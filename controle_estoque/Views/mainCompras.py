@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # Form implementation generated from reading ui file 'mainCompras.ui',
 # licensing of 'mainCompras.ui' applies.
 #
@@ -9,7 +7,6 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 
 class Ui_ct_MainCompras(object):
     def setMainCompras(self, ct_MainCompras):
@@ -41,10 +38,10 @@ class Ui_ct_MainCompras(object):
         self.bt_AddNovaCompra.setContextMenuPolicy(
             QtCore.Qt.ActionsContextMenu)
         self.bt_AddNovaCompra.setStyleSheet("QPushButton {\n"
-                                            "background-color: #7AB32E;\n"
+                                            "background-color: #877100;\n"
                                             " }\n"
                                             "QPushButton:hover{\n"
-                                            "background-color: #40a286\n"
+                                            "background-color: #D4B000\n"
                                             "}")
         self.bt_AddNovaCompra.setText("")
         self.bt_AddNovaCompra.setObjectName("bt_AddNovaCompra")

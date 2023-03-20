@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'mainDbConfig.ui',
 # licensing of 'mainDbConfig.ui' applies.
 #
-# Created: Fri Mar 15 09:57:40 2019
+# Created: Fri Mar 15 09:57:40 2023
 #      by: PyQt5-uic  running on PyQt5 5.12.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -41,11 +40,11 @@ class Ui_ct_dbConf(object):
         self.bt_SalvarConfigDB.setContextMenuPolicy(
             QtCore.Qt.ActionsContextMenu)
         self.bt_SalvarConfigDB.setStyleSheet("QPushButton {\n"
-                                             "background-color: #7AB32E;\n"
+                                             "background-color: #877100;\n"
                                              "color: #FFF\n"
                                              " }\n"
                                              "QPushButton:hover{\n"
-                                             "background-color: #40a286\n"
+                                             "background-color: #D4B000\n"
                                              "}\n"
                                              "QPushButton:disabled {\n"
                                              "background-color: #CCC;\n"
@@ -179,16 +178,16 @@ class Ui_ct_dbConf(object):
         self.bt_TestarConexao.setContextMenuPolicy(
             QtCore.Qt.ActionsContextMenu)
         self.bt_TestarConexao.setStyleSheet("QPushButton{\n"
-                                            "background: #40A286 ;\n"
+                                            "background: #D4B000 ;\n"
                                             "border: none;\n"
                                             "color: #FFF;\n"
                                             "border-radius: 4px\n"
                                             "}\n"
                                             "QPushButton:hover {\n"
-                                            "background: #7AB32E\n"
+                                            "background: #877100\n"
                                             "}\n"
                                             "QPushButton:disabled {\n"
-                                            "background: #7AB32E\n"
+                                            "background: #877100\n"
                                             "}")
         self.bt_TestarConexao.setIconSize(QtCore.QSize(75, 35))
         self.bt_TestarConexao.setObjectName("bt_TestarConexao")

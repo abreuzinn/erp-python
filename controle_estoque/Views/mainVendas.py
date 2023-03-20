@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # Form implementation generated from reading ui file 'mainVendas.ui',
 # licensing of 'mainVendas.ui' applies.
 #
@@ -9,7 +7,6 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 
 class Ui_ct_MainVendas(object):
     def setMainVendas(self, ct_MainVendas):
@@ -41,10 +38,10 @@ class Ui_ct_MainVendas(object):
         self.bt_AddNovoVenda.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_AddNovoVenda.setContextMenuPolicy(QtCore.Qt.ActionsContextMenu)
         self.bt_AddNovoVenda.setStyleSheet("QPushButton {\n"
-                                           "background-color: #7AB32E;\n"
+                                           "background-color: #877100;\n"
                                            " }\n"
                                            "QPushButton:hover{\n"
-                                           "background-color: #40a286\n"
+                                           "background-color: #D4B000\n"
                                            "}")
         self.bt_AddNovoVenda.setText("")
         self.bt_AddNovoVenda.setObjectName("bt_AddNovoVenda")

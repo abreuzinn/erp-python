@@ -1,9 +1,7 @@
-# -*- coding: utf-8 -*-
-
 # Form implementation generated from reading ui file 'mainFinanceiro.ui',
 # licensing of 'mainFinanceiro.ui' applies.
 #
-# Created: Sat Mar 23 13:33:24 2019
+# Created: Sat Mar 19 13:33:24 2023
 #      by: PyQt5-uic  running on PyQt5 5.12.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -59,7 +57,7 @@ class Ui_ct_MainFinanceiro(object):
         self.bt_MovCaixa.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_MovCaixa.setAutoFillBackground(False)
         self.bt_MovCaixa.setStyleSheet("QPushButton{\n"
-"background: #40A286 ;\n"
+"background: #877100 ;\n"
 "border: none;\n"
 "color: #FFF;\n"
 "border-top-left-radius: 4px;\n"
@@ -67,11 +65,11 @@ class Ui_ct_MainFinanceiro(object):
 "margin-top: 7px;\n"
 "}\n"
 "QPushButton:hover {\n"
-"background: #7AB32E;\n"
+"background: #D4B000;\n"
 "margin-top: 0;\n"
 "}\n"
 "QPushButton:disabled {\n"
-"background: #7AB32E;\n"
+"background: #D4B000;\n"
 "margin-top: 0;\n"
 "}\n"
 "")
@@ -93,7 +91,7 @@ class Ui_ct_MainFinanceiro(object):
         self.bt_AReceber.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_AReceber.setAutoFillBackground(False)
         self.bt_AReceber.setStyleSheet("QPushButton{\n"
-"background: #40A286 ;\n"
+"background: #877100 ;\n"
 "border: none;\n"
 "color: #FFF;\n"
 "border-top-left-radius: 4px;\n"
@@ -101,11 +99,11 @@ class Ui_ct_MainFinanceiro(object):
 "margin-top: 7px;\n"
 "}\n"
 "QPushButton:hover {\n"
-"background: #7AB32E;\n"
+"background: #D4B000;\n"
 "margin-top: 0;\n"
 "}\n"
 "QPushButton:disabled {\n"
-"background: #7AB32E;\n"
+"background: #D4B000;\n"
 "margin-top: 0;\n"
 "}\n"
 "")
@@ -126,7 +124,7 @@ class Ui_ct_MainFinanceiro(object):
         self.bt_APagar.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_APagar.setAutoFillBackground(False)
         self.bt_APagar.setStyleSheet("QPushButton{\n"
-"background: #40A286 ;\n"
+"background: #877100 ;\n"
 "border: none;\n"
 "color: #FFF;\n"
 "border-top-left-radius: 4px;\n"
@@ -134,11 +132,11 @@ class Ui_ct_MainFinanceiro(object):
 "margin-top: 7px;\n"
 "}\n"
 "QPushButton:hover {\n"
-"background: #7AB32E;\n"
+"background: #D4B000;\n"
 "margin-top: 0;\n"
 "}\n"
 "QPushButton:disabled {\n"
-"background: #7AB32E;\n"
+"background: #D4B000;\n"
 "margin-top: 0;\n"
 "}\n"
 "")
@@ -159,7 +157,7 @@ class Ui_ct_MainFinanceiro(object):
         self.bt_relatVendas.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_relatVendas.setAutoFillBackground(False)
         self.bt_relatVendas.setStyleSheet("QPushButton{\n"
-"background: #40A286 ;\n"
+"background: #877100 ;\n"
 "border: none;\n"
 "color: #FFF;\n"
 "border-top-left-radius: 4px;\n"
@@ -167,11 +165,11 @@ class Ui_ct_MainFinanceiro(object):
 "margin-top: 7px;\n"
 "}\n"
 "QPushButton:hover {\n"
-"background: #7AB32E;\n"
+"background: #D4B000;\n"
 "margin-top: 0;\n"
 "}\n"
 "QPushButton:disabled {\n"
-"background: #7AB32E;\n"
+"background: #D4B000;\n"
 "margin-top: 0;\n"
 "}\n"
 "")
@@ -192,7 +190,7 @@ class Ui_ct_MainFinanceiro(object):
         self.bt_relatCompras.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_relatCompras.setAutoFillBackground(False)
         self.bt_relatCompras.setStyleSheet("QPushButton{\n"
-"background: #40A286 ;\n"
+"background: #877100 ;\n"
 "border: none;\n"
 "color: #FFF;\n"
 "border-top-left-radius: 4px;\n"
@@ -200,11 +198,11 @@ class Ui_ct_MainFinanceiro(object):
 "margin-top: 7px;\n"
 "}\n"
 "QPushButton:hover {\n"
-"background: #7AB32E;\n"
+"background: #D4B000;\n"
 "margin-top: 0;\n"
 "}\n"
 "QPushButton:disabled {\n"
-"background: #7AB32E;\n"
+"background: #D4B000;\n"
 "margin-top: 0;\n"
 "}\n"
 "")
@@ -225,7 +223,7 @@ class Ui_ct_MainFinanceiro(object):
         self.bt_ajustesFinanceiro.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_ajustesFinanceiro.setAutoFillBackground(False)
         self.bt_ajustesFinanceiro.setStyleSheet("QPushButton{\n"
-"background: #40A286 ;\n"
+"background: #877100 ;\n"
 "border: none;\n"
 "color: #FFF;\n"
 "border-top-left-radius: 4px;\n"
@@ -233,11 +231,11 @@ class Ui_ct_MainFinanceiro(object):
 "margin-top: 7px;\n"
 "}\n"
 "QPushButton:hover {\n"
-"background: #7AB32E;\n"
+"background: #D4B000;\n"
 "margin-top: 0;\n"
 "}\n"
 "QPushButton:disabled {\n"
-"background: #7AB32E;\n"
+"background: #D4B000;\n"
 "margin-top: 0;\n"
 "}\n"
 "")

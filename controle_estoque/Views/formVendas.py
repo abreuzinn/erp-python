@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # Form implementation generated from reading ui file 'formVendas.ui',
 # licensing of 'formVendas.ui' applies.
 #
@@ -51,7 +49,7 @@ class Ui_ct_FormVenda(object):
 "color: #FFF\n"
 "}\n"
 "QPushButton:hover{\n"
-"background-color: #40a286\n"
+"background-color: #D4B000\n"
 "}")
         self.bt_Voltar.setObjectName("bt_Voltar")
         self.bt_Salvar = QtWidgets.QPushButton(self.fr_BotoesFormVenda)
@@ -66,11 +64,11 @@ class Ui_ct_FormVenda(object):
         self.bt_Salvar.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_Salvar.setContextMenuPolicy(QtCore.Qt.ActionsContextMenu)
         self.bt_Salvar.setStyleSheet("QPushButton {\n"
-"background-color: #7AB32E;\n"
+"background-color: #877100;\n"
 "color: #FFF\n"
 " }\n"
 "QPushButton:hover{\n"
-"background-color: #40a286\n"
+"background-color: #D4B000\n"
 "}")
         self.bt_Salvar.setObjectName("bt_Salvar")
         self.bt_Imprimir = QtWidgets.QPushButton(self.fr_BotoesFormVenda)
@@ -90,7 +88,7 @@ class Ui_ct_FormVenda(object):
 "color: #FFF\n"
 " }\n"
 "QPushButton:hover{\n"
-"background-color: #40a286\n"
+"background-color: #D4B000\n"
 "}")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("../../../../home/andre/.designer/Images/gtk-print.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -270,11 +268,11 @@ class Ui_ct_FormVenda(object):
         self.bt_Entregar.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_Entregar.setContextMenuPolicy(QtCore.Qt.ActionsContextMenu)
         self.bt_Entregar.setStyleSheet("QPushButton {\n"
-"background-color: #7AB32E;\n"
+"background-color: #877100;\n"
 "color: #FFF\n"
 " }\n"
 "QPushButton:hover{\n"
-"background-color: #40a286\n"
+"background-color: #D4B000\n"
 "}\n"
 "QPushButton:disabled{\n"
 "background-color: #CACACA;\n"
@@ -750,7 +748,7 @@ class Ui_ct_FormVenda(object):
         self.bt_GerarParcela.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_GerarParcela.setContextMenuPolicy(QtCore.Qt.ActionsContextMenu)
         self.bt_GerarParcela.setStyleSheet("QPushButton {\n"
-"background-color: #7AB32E;\n"
+"background-color: #877100;\n"
 "background-position: center;\n"
 "background-repeat: no-repeat;\n"
 "border: none;\n"
@@ -760,7 +758,7 @@ class Ui_ct_FormVenda(object):
 "\n"
 " }\n"
 "QPushButton:hover{\n"
-"background-color: #40a286\n"
+"background-color: #D4B000\n"
 "}")
         self.bt_GerarParcela.setIconSize(QtCore.QSize(75, 35))
         self.bt_GerarParcela.setObjectName("bt_GerarParcela")
@@ -816,7 +814,7 @@ class Ui_ct_FormVenda(object):
 " }\n"
 "QComboBox QAbstractItemView {\n"
 "    border: 1px solid darkgray;\n"
-"    selection-background-color: #40a286;\n"
+"    selection-background-color: #D4B000;\n"
 "color: #000;\n"
 "font: 10px \"Arial\" ;\n"
 "text-transform: uppercase;\n"
@@ -873,7 +871,7 @@ class Ui_ct_FormVenda(object):
 " }\n"
 "QComboBox QAbstractItemView {\n"
 "    border: 1px solid darkgray;\n"
-"    selection-background-color: #40a286;\n"
+"    selection-background-color: #D4B000;\n"
 "color: #000;\n"
 "font: 10px \"Arial\" ;\n"
 "text-transform: uppercase;\n"

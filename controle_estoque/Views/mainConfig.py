@@ -1,15 +1,12 @@
-# -*- coding: utf-8 -*-
-
 # Form implementation generated from reading ui file 'mainConfig.ui',
 # licensing of 'mainConfig.ui' applies.
 #
-# Created: Sat Mar 23 13:32:36 2019
+# Created: Sat Mar 20 13:32:36 2023
 #      by: PyQt5-uic  running on PyQt5 5.12.1
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 
 class Ui_ct_MainConfig(object):
     def setMainConfig(self, ct_MainConfig):
@@ -60,7 +57,7 @@ class Ui_ct_MainConfig(object):
         self.bt_confEmpresa.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_confEmpresa.setAutoFillBackground(False)
         self.bt_confEmpresa.setStyleSheet("QPushButton{\n"
-                                          "background: #40A286 ;\n"
+                                          "background: #D4B000 ;\n"
                                           "border: none;\n"
                                           "color: #FFF;\n"
                                           "border-top-left-radius: 4px;\n"
@@ -68,11 +65,11 @@ class Ui_ct_MainConfig(object):
                                           "margin-top: 7px;\n"
                                           "}\n"
                                           "QPushButton:hover {\n"
-                                          "background: #7AB32E;\n"
+                                          "background: #877100;\n"
                                           "margin-top: 0;\n"
                                           "}\n"
                                           "QPushButton:disabled {\n"
-                                          "background: #7AB32E;\n"
+                                          "background: #877100;\n"
                                           "margin-top: 0;\n"
                                           "}\n"
                                           "")
@@ -95,7 +92,7 @@ class Ui_ct_MainConfig(object):
         self.bt_confUser.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_confUser.setAutoFillBackground(False)
         self.bt_confUser.setStyleSheet("QPushButton{\n"
-                                       "background: #40A286 ;\n"
+                                       "background: #D4B000 ;\n"
                                        "border: none;\n"
                                        "color: #FFF;\n"
                                        "border-top-left-radius: 4px;\n"
@@ -103,11 +100,11 @@ class Ui_ct_MainConfig(object):
                                        "margin-top: 7px;\n"
                                        "}\n"
                                        "QPushButton:hover {\n"
-                                       "background: #7AB32E;\n"
+                                       "background: #877100;\n"
                                        "margin-top: 0;\n"
                                        "}\n"
                                        "QPushButton:disabled {\n"
-                                       "background: #7AB32E;\n"
+                                       "background: #877100;\n"
                                        "margin-top: 0;\n"
                                        "}\n"
                                        "")
@@ -128,7 +125,7 @@ class Ui_ct_MainConfig(object):
         self.bt_confDB.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_confDB.setAutoFillBackground(False)
         self.bt_confDB.setStyleSheet("QPushButton{\n"
-                                     "background: #40A286 ;\n"
+                                     "background: #D4B000 ;\n"
                                      "border: none;\n"
                                      "color: #FFF;\n"
                                      "border-top-left-radius: 4px;\n"
@@ -136,11 +133,11 @@ class Ui_ct_MainConfig(object):
                                      "margin-top: 7px;\n"
                                      "}\n"
                                      "QPushButton:hover {\n"
-                                     "background: #7AB32E;\n"
+                                     "background: #877100;\n"
                                      "margin-top: 0;\n"
                                      "}\n"
                                      "QPushButton:disabled {\n"
-                                     "background: #7AB32E;\n"
+                                     "background: #877100;\n"
                                      "margin-top: 0;\n"
                                      "}\n"
                                      "")

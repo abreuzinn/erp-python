@@ -1,14 +1,9 @@
-# -*- coding: utf-8 -*-
 from functools import partial
-
 from PyQt5.QtCore import QDate, QUrl
 from PyQt5.QtWidgets import QLineEdit
 from PyQt5.QtWebEngineWidgets import QWebEngineView
-
-
 from Views.mainCompras import Ui_ct_MainCompras
 from Views.formCompras import Ui_ct_FormCompra
-
 from Crud.CrudCompra import CrudCompra
 from Crud.CrudFornecedor import CrudFornecedor
 from Crud.CrudProduto import CrudProduto
@@ -19,7 +14,6 @@ from Funcoes.cb_status import cb_statusEntrega, cb_statusPagamento
 
 
 class MainCompras(Ui_ct_MainCompras, Ui_ct_FormCompra, DataAtual):
-
     def maincompras(self, frame):
         super(MainCompras, self).setMainCompras(frame)
         self.frameMainCompras.show()

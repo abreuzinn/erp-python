@@ -1,9 +1,7 @@
-# -*- coding: utf-8 -*-
-
 # Form implementation generated from reading ui file 'mainEmpresa.ui',
 # licensing of 'mainEmpresa.ui' applies.
 #
-# Created: Fri Mar 15 09:55:46 2019
+# Created: Fri Mar 18 09:55:46 2023
 #      by: PyQt5-uic  running on PyQt5 5.12.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -112,11 +110,11 @@ class Ui_ct_empresa(object):
         font.setBold(True)
         self.bt_LocalizaCepEmpresa.setFont(font)
         self.bt_LocalizaCepEmpresa.setStyleSheet("QPushButton{\n"
-"background: #7AB32E;\n"
+"background: #877100;\n"
 "color: #FFF\n"
 "}\n"
 "QPushButton:hover{\n"
-"background-color: #40a286\n"
+"background-color: #D4B000\n"
 "}")
         self.bt_LocalizaCepEmpresa.setText("")
         self.bt_LocalizaCepEmpresa.setObjectName("bt_LocalizaCepEmpresa")
@@ -328,11 +326,11 @@ class Ui_ct_empresa(object):
         self.bt_SalvarDadosEmpresa.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_SalvarDadosEmpresa.setContextMenuPolicy(QtCore.Qt.ActionsContextMenu)
         self.bt_SalvarDadosEmpresa.setStyleSheet("QPushButton {\n"
-"background-color: #7AB32E;\n"
+"background-color: #877100;\n"
 "color: #FFF\n"
 " }\n"
 "QPushButton:hover{\n"
-"background-color: #40a286\n"
+"background-color: #D4B000\n"
 "}")
         self.bt_SalvarDadosEmpresa.setIconSize(QtCore.QSize(75, 35))
         self.bt_SalvarDadosEmpresa.setObjectName("bt_SalvarDadosEmpresa")
@@ -473,11 +471,11 @@ class Ui_ct_empresa(object):
         font.setBold(True)
         self.bt_AddLogo.setFont(font)
         self.bt_AddLogo.setStyleSheet("QPushButton{\n"
-"background: #7AB32E;\n"
+"background: #877100;\n"
 "color: #FFF\n"
 "}\n"
 "QPushButton:hover{\n"
-"background-color: #40a286\n"
+"background-color: #D4B000\n"
 "}")
         self.bt_AddLogo.setText("")
         self.bt_AddLogo.setObjectName("bt_AddLogo")
@@ -519,11 +517,11 @@ class Ui_ct_empresa(object):
         font.setBold(True)
         self.bt_DelLogo.setFont(font)
         self.bt_DelLogo.setStyleSheet("QPushButton{\n"
-"background: #7AB32E;\n"
+"background: #877100;\n"
 "color: #FFF\n"
 "}\n"
 "QPushButton:hover{\n"
-"background-color: #40a286\n"
+"background-color: #D4B000\n"
 "}")
         self.bt_DelLogo.setText("")
         self.bt_DelLogo.setObjectName("bt_DelLogo")

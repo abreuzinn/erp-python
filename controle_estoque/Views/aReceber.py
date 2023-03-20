@@ -163,10 +163,10 @@ class Ui_ct_AReceber(object):
         self.bt_AddConta.setFocusPolicy(QtCore.Qt.NoFocus)
         self.bt_AddConta.setContextMenuPolicy(QtCore.Qt.ActionsContextMenu)
         self.bt_AddConta.setStyleSheet("QPushButton {\n"
-                                       "background-color: #7AB32E;\n"
+                                       "background-color: #877100;\n"
                                        " }\n"
                                        "QPushButton:hover{\n"
-                                       "background-color: #40a286\n"
+                                       "background-color: #D4B000\n"
                                        "}")
         self.bt_AddConta.setText("")
         self.bt_AddConta.setObjectName("bt_AddConta")

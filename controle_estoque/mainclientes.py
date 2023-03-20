@@ -1,20 +1,13 @@
-# -*- coding: utf-8 -*-
 import re
 from functools import partial
-
-
 from PyQt5.QtCore import QUrl
 from PyQt5.QtWebEngineWidgets import QWebEngineView
-
-
 from Views.mainClientes import Ui_ct_MainClientes
 from Views.formClientes import Ui_ct_FormClientes
 from Crud.CrudCliente import CrudCliente
 from Crud.CrudVenda import CrudVenda
 
-
 class MainClientes(Ui_ct_MainClientes, Ui_ct_FormClientes):
-
     def mainclientes(self, frame):
         super(MainClientes, self).setMainClientes(frame)
         self.frameMainClientes.show()
