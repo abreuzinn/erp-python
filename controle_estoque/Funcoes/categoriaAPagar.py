@@ -1,10 +1,8 @@
-# -*- coding: utf-8 -*-
 from Crud.CrudCatAPagar import CrudCatAPagar
 
-
 class CategoriaAPagar(object):
-
-    # Populando combobox forma de pagamento
+    
+    # populando combobox forma de pagamento
     def cboxCatAPagar(self, combobox):
         busca = CrudCatAPagar()
         busca.listaCatAPagar()

@@ -1,10 +1,8 @@
-# -*- coding: utf-8 -*-
 from Crud.CrudCatAReceber import CrudCatAReceber
-
 
 class CategoriaAReceber(object):
 
-    # Populando combobox forma de pagamento
+    # Pppulando combobox forma de pagamento
     def cboxCatAReceber(self, combobox):
         busca = CrudCatAReceber()
         busca.listaCatAReceber()

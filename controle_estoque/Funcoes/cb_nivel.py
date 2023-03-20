@@ -1,9 +1,6 @@
-# -*- coding: utf-8 -*-
-
 from Crud.CrudNivel import CrudNivel
 
-
-# Populando Combobox Nivel
+# populando combobox nivel
 def cb_nivel(campo):
 
     busca = CrudNivel()

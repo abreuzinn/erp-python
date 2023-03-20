@@ -1,8 +1,5 @@
-# -*- codding: utf-8 -*-
-
 from Crud.CrudStatusEntrega import CrudStatusEntrega
 from Crud.CrudStatusPagamento import CrudStatusPagamento
-
 
 def cb_statusPagamento(box):
     busca = CrudStatusPagamento()
@@ -13,7 +10,6 @@ def cb_statusPagamento(box):
     for row in busca.statusPagamento:
         box.addItem(row, str(busca.id[i]))
         i += 1
-
 
 def cb_statusEntrega(box):
     busca = CrudStatusEntrega()

@@ -1,17 +1,9 @@
-# -*- coding: utf-8 -*-
-
 from sqlalchemy.exc import IntegrityError
-
-
 from Crud.core import Conexao
 from Crud.Models import RelacaoCompra, Produto
 
-
 class CrudRelCompra(object):
-    def __init__(self, id="", idCompra="", idProduto="", produto="",
-                 qtde="",
-                 valorUnitario="", valorTotal="", obs="", query=""):
-
+    def __init__(self, id="", idCompra="", idProduto="", produto="", qtde="", valorUnitario="", valorTotal="", obs="", query=""):
         self.id = id
         self.idCompra = idCompra
         self.idProduto = idProduto
@@ -22,17 +14,14 @@ class CrudRelCompra(object):
         self.obs = obs
         self.query = query
 
-    # Cadastrando item referente a compra
-
+    # cadastrando item referente a compra
     def inseriItens(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             row = RelacaoCompra(
                 id=self.id,
                 id_compra=self.idCompra,
@@ -43,13 +32,13 @@ class CrudRelCompra(object):
                 obs=self.obs
             )
 
-            # Add Query Sessa
+            # add query sessao
             sessao.add(row)
 
-            # Executando a Query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError:
@@ -57,19 +46,15 @@ class CrudRelCompra(object):
 
     # update item referente a compra
     def updateItens(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Selecionando ID
-
+            # selecionando id
             row = sessao.query(RelacaoCompra).get(self.id)
 
-            # Novos Valores
-
+            # novos valores
             row.id_compra = self.idCompra
             row.id_produto = self.idProduto
             row.qtde = self.qtde
@@ -77,25 +62,23 @@ class CrudRelCompra(object):
             row.valor_total = self.valorTotal
             row.obs = self.obs
 
-            # Executando a Query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:
             print(err)
 
-    # Lista Itens por id de Compra
+    # lista itens por id de compra
     def listaItens(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             self.query = (sessao.query(
                 RelacaoCompra.id, RelacaoCompra.id_compra,
                 RelacaoCompra.id_produto, RelacaoCompra.qtde,
@@ -106,7 +89,7 @@ class CrudRelCompra(object):
                 .filter(RelacaoCompra.id_compra == self.idCompra))
             self.query.all()
 
-            # Convertendo variaveis em lista
+            # convertendo variaveis em lista
             self.id = []
             self.idCompra = []
             self.idProduto = []
@@ -116,7 +99,7 @@ class CrudRelCompra(object):
             self.valorTotal = []
             self.obs = []
 
-            # Salvando resultado da query e suas listas
+            # salvando resultado da query e suas listas
             for row in self.query:
                 self.id.append(row.id)
                 self.idCompra.append(row.id_compra)
@@ -127,33 +110,30 @@ class CrudRelCompra(object):
                 self.valorTotal.append(row.valor_total)
                 self.obs.append(row.obs)
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:
             print(err)
 
-    # Deletando item
-
+    # deletando item
     def delItem(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # selecionando ID
+            # selecionando id
             self.query = sessao.query(RelacaoCompra).get(self.id)
 
             if self.query:
-                # Add query na Sessao
+                # add query na sessao
                 sessao.delete(self.query)
 
-                # Executando a query
+                # executando a query
                 sessao.commit()
 
-            # Fechando Conexao
+            # fechando conexao
             sessao.close()
 
         except IntegrityError as err:

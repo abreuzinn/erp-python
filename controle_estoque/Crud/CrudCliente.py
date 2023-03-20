@@ -1,15 +1,9 @@
-# -*- coding: utf-8 -*-
-
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy import desc
-
-
 from Crud.core import Conexao
 from Crud.Models import Cliente
 
-
 class CrudCliente(object):
-
     def __init__(self, id="", nome="", sobrenome="", cpf="", rg="",
                  celular="", telefone="", email="", obs="", cep="",
                  endereco="", numero="", bairro="", cidade="", estado="",
@@ -32,22 +26,20 @@ class CrudCliente(object):
         self.estado = estado
         self.query = query
 
-    # Recebendo última id inserido
-
+    # recebendo última id inserido
     def lastIdCliente(self):
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             ultimo = sessao.query(Cliente).order_by(
                 desc(Cliente.id)).limit(1).first()
 
             self.id = ultimo.id + 1
 
-            # Fechando Conexao
+            # fechando conexao
             sessao.close()
 
             pass
@@ -58,16 +50,14 @@ class CrudCliente(object):
 
         return self.id
 
-    #  Cadastro Cliente
+    # cadastro Cliente
     def inseriCliente(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             row = Cliente(
                 id=self.id,
                 nome=self.nome,
@@ -86,11 +76,11 @@ class CrudCliente(object):
                 estado=self.estado
             )
 
-            # Execurando a Query
+            # executa query
             sessao.add(row)
             sessao.commit()
 
-            # Fechando a Sesao
+            # fecha sessao
             sessao.close()
 
             pass
@@ -101,19 +91,17 @@ class CrudCliente(object):
 
             pass
 
-    #  Update Cliente
+    #  update cliente
     def updateCliente(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Selecionando id
+            # selecionando id
             query = sessao.query(Cliente).get(self.id)
 
-            # Novos valores
+            # novos valores
             query.nome = self.nome
             query.sobrenome = self.sobrenome
             query.cpf = self.cpf
@@ -129,10 +117,10 @@ class CrudCliente(object):
             query.cidade = self.cidade
             query.estado = self.estado
 
-            # Execurando a Query
+            # executa query
             sessao.commit()
 
-            # Fechando a Sesao
+            # fecha sessao
             sessao.close()
 
             pass
@@ -146,15 +134,14 @@ class CrudCliente(object):
     # Buscando cliente por ID
     def selectClienteId(self):
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             busca = sessao.query(Cliente).get(self.id)
 
-            # Salvando resultado da Query
+            # salvando resultado da query
             self.id = busca.id
             self.nome = busca.nome
             self.sobrenome = busca.sobrenome
@@ -171,7 +158,7 @@ class CrudCliente(object):
             self.cidade = busca.cidade
             self.estado = busca.estado
 
-            # Fechando Conexao
+            # fechando conexao
             sessao.close()
 
             pass
@@ -182,21 +169,19 @@ class CrudCliente(object):
 
         pass
 
-    # Buscando Cliente por nome
+    # buscando cliente por nome
     def listaCliente(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             query = sessao.query(Cliente).filter(
                 Cliente.nome.contains(self.nome))
             query.all()
 
-            # # Convertendo variaveis em lista
+            # convertendo variaveis em lista
             self.id = []
             self.nome = []
             self.sobrenome = []
@@ -204,7 +189,7 @@ class CrudCliente(object):
             self.telefone = []
             self.email = []
 
-            # # Salvando resultado da query e suas listas
+            # salvando resultado da query e suas listas
             for row in query:
                 self.id.append(row.id)
                 self.nome.append(row.nome)
@@ -224,29 +209,26 @@ class CrudCliente(object):
 
             pass
 
-    # Lista AutoComplete Cliente
-
+    # lista AutoComplete cliente
     def autoCompleteCliente(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             self.query = sessao.query(Cliente).filter(
                 Cliente.nome.contains(self.nome))
             self.query.all()
 
-            # Convertendo variavel em lista
+            # convertendo variavel em lista
             self.nome = []
 
             # salvando resultado em lista
             for row in self.query:
                 self.nome.append(row.nome)
 
-            # Fechando Conexao
+            # fechando conexao
             sessao.close()
 
             pass
@@ -257,25 +239,23 @@ class CrudCliente(object):
 
             pass
 
-    # Busca CLiente por nome
+    # busca cliente por nome
     def buscaClienteNome(self):
-
         try:
-
-            # Abrindo sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             self.query = sessao.query(Cliente).filter(
                 Cliente.nome == self.nome).first()
 
-            # Salvando Resultado
+            # salvando Resultado
             self.id = self.query.id
             self.nome = self.query.nome
             self.celular = self.query.celular
 
-            # Fechando Conexao
+            # fechando conexao
             sessao.close()
 
         except IntegrityError as err:

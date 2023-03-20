@@ -1,11 +1,7 @@
-# -*- coding: utf-8 -*-
-
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy import desc
-
 from Crud.core import Conexao
 from Crud.Models import FormaPagamento
-
 
 class CrudFormaPagamento(object):
     def __init__(self, id="", formaPagamento="", query=""):
@@ -13,23 +9,20 @@ class CrudFormaPagamento(object):
         self.formaPagamento = formaPagamento
         self.query = query
 
-    # Recebendo ultimo Id inserido
-
+    # recebendo ultimo id inserido
     def lastIdFormaPagamento(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             ultimo = sessao.query(FormaPagamento.id).order_by(
                 desc(FormaPagamento.id)).limit(1).first()
 
             self.id = ultimo.id + 1
 
-            # Fechando a conexao
+            # fechando a conexao
             sessao.close()
 
         except:
@@ -37,70 +30,65 @@ class CrudFormaPagamento(object):
 
         return self.id
 
-    # Cadastrando Forma Pagemento
+    # cadastrando forma pagemento
     def inseriFormaPagamento(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
-            # Query
+
+            # query
             row = FormaPagamento(
                 id=self.id,
                 forma_pagamento=self.formaPagamento
             )
 
-            # Add query na sessao
+            # add query na sessao
             sessao.add(row)
 
-            # Executando a query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError:
             self.updateFormaPagamento()
 
-    # Update Forma Pagemento
+    # update forma pagamento
     def updateFormaPagamento(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Selecionando id
+            # selecionando id
             row = sessao.query(FormaPagamento).get(self.id)
 
-            # Query
+            # query
             row.forma_pagamento = self.formaPagamento
 
-            # Executando a query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError:
             print('err')
 
-    # Listando todas as categorias
+    # listando todas as categorias
     def listaFormaPagamento(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             self.query = sessao.query(FormaPagamento).order_by(
                 FormaPagamento.id).all()
 
-            # Convertendo variaveis em lista
+            # convertendo variaveis em lista
             self.id = []
             self.formaPagamento = []
 
@@ -108,7 +96,7 @@ class CrudFormaPagamento(object):
                 self.id.append(row.id)
                 self.formaPagamento.append(row.forma_pagamento)
 
-                # Fechando a Conexao
+                # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:

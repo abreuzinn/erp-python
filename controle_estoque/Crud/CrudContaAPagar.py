@@ -1,12 +1,8 @@
-# -*- coding: utf-8 -*-
-
 from datetime import date
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy import desc
 from sqlalchemy import case
 from sqlalchemy import func
-
-
 from Crud.core import Conexao
 from Crud.Models import ContaAPagar
 from Crud.Models import Fornecedor
@@ -14,15 +10,12 @@ from Crud.Models import StatusPagamento
 from Crud.Models import CatAPagar
 from Crud.Models import FormaPagamento
 
-
 class CrudContaAPagar(object):
-
     def __init__(self, id="", idCompra="", idFornecedor="", descricao="",
                  obs="", categoria="", dataVencimento="", valor="",
                  formaPagamento="", dataPagamento="", valorPago="",
                  statusPagamento="", query="", dataFim="", valorAPagar="",
                  nomeFantasia="", telefone=""):
-
         self.id = id
         self.idCompra = idCompra
         self.idFornecedor = idFornecedor
@@ -41,22 +34,19 @@ class CrudContaAPagar(object):
         self.dataFim = dataFim
         self.valorAPagar = valorAPagar
 
-    # Recebendo ultimo id
-
+    # recebendo ultimo id
     def lastIdContaAPagar(self):
-
         try:
-
-            # Abrindo sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             ultimo = (sessao.query(ContaAPagar.id).order_by(
                 desc(ContaAPagar.id)).limit(1).first())
             self.id = ultimo.id + 1
 
-            # Fechando Sessao
+            # fechando sessao
             sessao.close()
 
         except:
@@ -65,16 +55,13 @@ class CrudContaAPagar(object):
         return self.id
 
     # Cadastrando Parcelas de Compra
-
     def inseriParcelaCompra(self):
-
         try:
-
-            # Abrindo sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             row = ContaAPagar(
                 id=self.id,
                 id_compra=self.idCompra,
@@ -86,28 +73,26 @@ class CrudContaAPagar(object):
                 forma_pagamento=self.formaPagamento
             )
 
-            # Add Query Sessao
+            # add query sessao
             sessao.add(row)
 
-            # Executando a Query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:
             print(err)
 
-    # Lista de  parcelas de compra
+    # lista de  parcelas de compra
     def listaParcelas(self):
-
         try:
-
-            # Abrindo sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             self.query = (sessao.query(ContaAPagar.__table__,
                                        StatusPagamento.status_pagamento,
                                        FormaPagamento.forma_pagamento.label('fpaga'))
@@ -117,7 +102,7 @@ class CrudContaAPagar(object):
                 ContaAPagar.id_compra == self.idCompra))
             self.query.all()
 
-            # Convertendo variaveis em lista
+            # convertendo variaveis em lista
             self.id = []
             self.descricao = []
             self.dataVencimento = []
@@ -128,8 +113,7 @@ class CrudContaAPagar(object):
             self.idStatusPagamento = []
             self.statusPagamento = []
 
-            # Salvando resultado da query e suas listas
-
+            # salvando resultado da query e suas listas
             for row in self.query:
                 self.id.append(row.id)
                 self.descricao.append(row.descricao)
@@ -141,7 +125,7 @@ class CrudContaAPagar(object):
                 self.idStatusPagamento.append(row.pagamento)
                 self.statusPagamento.append(row.status_pagamento)
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:
@@ -149,14 +133,12 @@ class CrudContaAPagar(object):
 
     # Cadastrando Conta a Pagar
     def inseriContaAPagar(self):
-
         try:
-
-            # Abrindo sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             row = ContaAPagar(
                 id=self.id,
                 id_fornecedor=self.idFornecedor,
@@ -168,31 +150,29 @@ class CrudContaAPagar(object):
                 forma_pagamento=self.formaPagamento
             )
 
-            # Add query a sessao
+            # add query a sessao
             sessao.add(row)
 
-            # Executando a Query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError:
             self.updateContaAPagar()
 
-    # Update Conta a Pagar
+    # update conta a pagar
     def updateContaAPagar(self):
-
         try:
-
-            # Abrindo sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Selecionando ID
+            # selecionando id
             row = sessao.query(ContaAPagar).get(self.id)
 
-            # Novos valores
+            # novos valores
             row.id_fornecedor = self.idFornecedor
             row.descricao = self.descricao
             row.obs = self.obs
@@ -201,25 +181,23 @@ class CrudContaAPagar(object):
             row.valor = self.valor
             row.forma_pagamento = self.formaPagamento
 
-            # Executando a Query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:
             print(err)
 
-    # Buscando conta a pagar por vencimento, fornecedor e status
+    # buscando conta a pagar por vencimento, fornecedor e status
     def listaContaAPagar(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             self.query = (sessao.query(ContaAPagar.__table__,
                                        Fornecedor.nome_fantasia,
                                        Fornecedor.telefone,
@@ -232,7 +210,7 @@ class CrudContaAPagar(object):
             )
             self.query.all()
 
-            # Convertendo variaveis em lista
+            # convertendo variaveis em lista
             self.id = []
             self.nomeFantasia = []
             self.telefone = []
@@ -257,22 +235,20 @@ class CrudContaAPagar(object):
                 self.idStatusPagamento.append(row.pagamento)
                 self.statusPagamento.append(row.status_pagamento)
 
-            # Fechando a Conexao
+            # fechando a Conexao
             sessao.close()
 
         except IntegrityError as err:
             print(err)
 
-    # Selecionando conta a Pagar por ID
+    # selecionando conta a pagar por id
     def selectContaID(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             row = sessao.query(ContaAPagar).get(self.id)
 
             # salvando resultado em variaveis
@@ -288,41 +264,38 @@ class CrudContaAPagar(object):
             self.valorPago = row.valor_pago
             self.idStatusPagamento = row.pagamento
 
-            # Fechando Conexao
+            # fechando Conexao
             sessao.close()
 
         except IntegrityError as err:
             print(err)
 
-    # Pagar Conta
+    # pagar conta
     def pagarConta(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # selecionando ID
-
+            # selecionando id
             row = sessao.query(ContaAPagar).get(self.id)
 
-            # Update Status se valor pago igual ou maior que valor parcela
+            # update status se valor pago igual ou maior que valor parcela
             status = case([
                 (ContaAPagar.valor_pago >= ContaAPagar.valor, '1')
             ], else_='2'
             )
 
-            # Novos Valores
+            # novos valores
             row.forma_pagamento = self.formaPagamento
             row.data_pagamento = self.dataPagamento
             row.valor_pago = ContaAPagar.valor_pago + self.valorPago
             row.pagamento = status
 
-            # Executando a query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:
@@ -332,16 +305,14 @@ class CrudContaAPagar(object):
 
     """  Obtendo Movimentação financeira """
 
-    # Total a receber referente a data selecionada
+    # total a receber referente a data selecionada
     def movDespesa(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             row = (sessao.query(func.COALESCE(
                 func.SUM(ContaAPagar.valor_pago), 0
             ).label('valorPago'))
@@ -351,11 +322,11 @@ class CrudContaAPagar(object):
             )
             row.all()
 
-            # Salvando resultado
+            # salvando resultado
             for row in row:
                 self.valorPago = row.valorPago
 
-            # Query
+            # query
             row = (sessao.query(func.COALESCE(
                 func.SUM(ContaAPagar.valor), 0
             ).label('valorAPagar'))
@@ -365,11 +336,11 @@ class CrudContaAPagar(object):
             )
             row.all()
 
-            # Salvando resultado
+            # salvando resultado
             for row in row:
                 self.valorAPagar = row.valorAPagar
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close
 
         except IntegrityError as err:
@@ -377,14 +348,12 @@ class CrudContaAPagar(object):
 
     # detalhes entrada por categoria de receita
     def detalheDespesa(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             self.query = (sessao.query(func.SUM(ContaAPagar.valor_pago),
                                        CatAPagar.categoria_a_pagar,
                                        FormaPagamento.forma_pagamento)
@@ -396,38 +365,36 @@ class CrudContaAPagar(object):
                           .group_by(ContaAPagar.forma_pagamento, ContaAPagar.categoria)
                           )
 
-            # Convertendo variaveis em lista
+            # convertendo variaveis em lista
             self.valorPago = []
             self.categoria = []
             self.formaPagamento = []
 
-            # Salvando resultado em suas listas
+            # salvando resultado em suas listas
             for row in self.query:
                 self.categoria.append(row.categoria_a_pagar)
                 self.valorPago.append(row[0])
                 self.formaPagamento.append(row.forma_pagamento)
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:
             print(err)
 
-    # Total a Pagar Hoje
+    # total a pagar hoje
     def aPagarHoje(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             row = (sessao.query(func.COALESCE(
                 func.SUM(ContaAPagar.valor), 0).label('total'))
                 .filter(ContaAPagar.data_vencimento == date.today(), ContaAPagar.pagamento == 2))
 
-            # Salvando Resultado
+            # salvando resultado
             for row in row:
                 self.valorAPagar = row.total
 

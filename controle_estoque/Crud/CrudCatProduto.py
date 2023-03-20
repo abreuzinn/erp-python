@@ -1,11 +1,7 @@
-# -*- coding: utf-8 -*-
-
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy import desc
-
 from Crud.core import Conexao
 from Crud.Models import CategoriaProduto
-
 
 class CrudCatProduto(object):
     def __init__(self, id="", categoria_produto="", query=""):
@@ -13,96 +9,87 @@ class CrudCatProduto(object):
         self.categoria_produto = categoria_produto
         self.query = query
 
-    # Recebendo ultimo Id inserido
-
+    # recebendo ultimo id inserido
     def lastIdCatProduto(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             ultimo = sessao.query(CategoriaProduto).order_by(
                 desc(CategoriaProduto.id)).limit(1).first()
             self.id = ultimo.id + 1
 
-            # Fechando Conexao
+            # fechando conexao
             sessao.close()
 
         except:
-
             self.id = 1
 
         return self.id
 
-    # Cadastrando categoria produto
+    # cadastrando categoria produto
 
     def inseriCatProduto(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             row = CategoriaProduto(
                 id=self.id,
                 categoria_produto=self.categoria_produto
             )
 
-            # Salvando query na sessao
+            # salvando query na sessao
             sessao.add(row)
 
-            # Executando query
+            # executando query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError:
             self.updateCatProduto()
 
-    # Cadastrando categoria produto
+    # cadastrando categoria produto
 
     def updateCatProduto(self):
-
         try:
-            # Abrindo a Sessao
+            # abrindo a sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Selecionando id
+            # selecionando id
             row = sessao.query(CategoriaProduto).get(self.id)
 
-            # Novos valores
+            # novos valores
             row.categoria_produto = self.categoria_produto
 
-            # Executando a query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a Conexao
             sessao.close()
 
         except IntegrityError as err:
             print(err)
 
-    # Listando todas as categorias
+    # listando todas as categorias
 
     def listaCatProduto(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             self.query = sessao.query(CategoriaProduto).all()
 
-            # Convertendo variaveis em lista
+            # convertendo variaveis em lista
             self.id = []
             self.categoria_produto = []
 

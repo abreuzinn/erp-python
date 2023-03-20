@@ -1,12 +1,8 @@
-# -*- coding: utf-8 -*-
-
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy import desc
-
 from Crud.core import Conexao
 from Crud.Models import Usuarios
 from Crud.Models import Nivel
-
 
 class CrudUsuario(object):
 
@@ -14,7 +10,6 @@ class CrudUsuario(object):
                  email="", obs="", cep="", endereco="", num="", bairro="",
                  cidade="", estado="", usuario="", senha="", nivel="",
                  ativo=""):
-
         self.id = id
         self.nome = nome
         self.cpf = cpf
@@ -35,9 +30,7 @@ class CrudUsuario(object):
         self.ativo = ativo
 
     def lastIdUser(self):
-
         try:
-
             # Abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()

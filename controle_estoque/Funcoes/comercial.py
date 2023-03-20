@@ -1,11 +1,8 @@
-# -*- coding: utf-8 -*-
 from PyQt5.QtWidgets import QCompleter, QLineEdit
 from PyQt5.QtCore import QDate, QDateTime, Qt, QStringListModel
 from PyQt5.QtGui import QIntValidator, QDoubleValidator
 from functools import partial
-
 from Crud.CrudProduto import CrudProduto
-
 
 class Comercial(object):
     """ Funcoes das Telas de Venda e Compra """

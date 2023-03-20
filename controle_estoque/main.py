@@ -1,18 +1,11 @@
-# -*- coding: utf-8 -*-
 import os
 import sys
 import random
 import webbrowser
-
-
 from PyQt5.QtCore import Qt
 from PyQt5 import QtGui, QtWidgets
-
 from jinja2 import Environment, FileSystemLoader
-
-
 from Crud.core import Conexao
-
 from login import MainLogin
 from Crud.Models import Empresa
 from Crud.CrudEmpresa import CrudEmpresa
@@ -34,7 +27,6 @@ from mainfornecedor import MainFornecedor
 from mainprodutos import MainProdutos
 from mainvendas import MainVendas
 from Views.main import Ui_MainWindow
-
 
 # Icons
 import Images

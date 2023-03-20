@@ -1,11 +1,7 @@
-# -*- coding: utf-8 -*-
-
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy import desc
-
 from Crud.core import Conexao
 from Crud.Models import CatAReceber
-
 
 class CrudCatAReceber(object):
     def __init__(self, id="", categoriaReceber="", query=""):
@@ -13,23 +9,21 @@ class CrudCatAReceber(object):
         self.categoriaReceber = categoriaReceber
         self.query = query
 
-    # Recebendo ultimo Id inserido
+    # recebe ultimo id inserido
 
     def lastIdCatAReceber(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             ultimo = sessao.query(CatAReceber.id).order_by(
                 desc(CatAReceber.id)).limit(1).first()
 
             self.id = ultimo.id + 1
 
-            # Fechando a conexao
+            # fechando a conexao
             sessao.close()
 
         except:
@@ -37,80 +31,75 @@ class CrudCatAReceber(object):
 
         return self.id
 
-    # Cadastrando categoria a receber
+    # cadastrando categoria a receber
 
     def inseriCatAReceber(self):
-
         try:
 
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             row = CatAReceber(
                 id=self.id,
                 categoria_a_receber=self.categoriaReceber
             )
 
-            # Add Query na sessao
+            # add query na sessao
             sessao.add(row)
 
-            # Executando a query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError:
             self.updateCatAReceber()
 
-    # Update categoria a Pagar
+    # update categoria a pagar
     def updateCatAReceber(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Selecionando id
+            # selecionando id
             row = sessao.query(CatAReceber).get(self.id)
 
-            # Novos Valores
+            # novos valores
             row.categoria_a_receber = self.categoriaReceber
 
-            # Executando a query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:
             print(err)
 
-    # Listando todas as categorias
+    # listando todas as categorias
     def listaCatAReceber(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             self.query = sessao.query(CatAReceber).all()
 
-            # Convertendo variaveis em lista
+            # convertendo variaveis em lista
             self.id = []
             self.categoriaReceber = []
 
-            # Salvando resultado em suas lisats
+            # salvando resultado em suas lisats
             for row in self.query:
                 self.id.append(row.id)
                 self.categoriaReceber.append(row.categoria_a_receber)
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:

@@ -1,21 +1,14 @@
-# -*- coding: utf-8 -*-
-
 from datetime import date
-
-
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy import desc
 from sqlalchemy import case
 from sqlalchemy import func
 from sqlalchemy import distinct
-
-
 from Crud.core import Conexao
 from Crud.Models import Venda
 from Crud.Models import Cliente
 from Crud.Models import StatusEntrega
 from Crud.Models import StatusPagamento
-
 
 class CrudVenda(object):
 
@@ -48,7 +41,6 @@ class CrudVenda(object):
         self.query = query
 
     # Recebendo ultimo Id inserido
-
     def lastIdVenda(self):
 
         try:

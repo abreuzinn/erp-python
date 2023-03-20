@@ -1,11 +1,7 @@
-# -*- coding: utf-8 -*-
-
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy import desc
-
 from Crud.core import Conexao
 from Crud.Models import MarcaProduto
-
 
 class CrudMarcaProduto(object):
     def __init__(self, id="", marca_produto="", query=""):
@@ -13,22 +9,20 @@ class CrudMarcaProduto(object):
         self.marca_produto = marca_produto
         self.query = query
 
-    # Recebendo ultimo Id inserido
-
+    # recebendo ultimo id inserido
     def lastIdMarcaProduto(self):
         try:
-
-            # Abrindo a Sessao
+            # abrindo a sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             ultimo = (sessao.query(MarcaProduto).order_by(
                 desc(MarcaProduto.id)).limit(1).first())
 
             self.id = ultimo.id + 1
 
-            # Fechando Conexao
+            # fechando conexao
             sessao.close()
 
         except:
@@ -37,28 +31,26 @@ class CrudMarcaProduto(object):
 
         return self.id
 
-    # Cadastrando Marca produto
-
+    # cadastrando marca produto
     def inseriMarcaProduto(self):
-
         try:
-            # Abrindo a Sessao
+            # abrindo a sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             row = MarcaProduto(
                 id=self.id,
                 marca_produto=self.marca_produto
             )
 
-            # Add Query na sessao
+            # add query na sessao
             sessao.add(row)
 
-            # Executando a query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError:
@@ -66,25 +58,23 @@ class CrudMarcaProduto(object):
 
         pass
 
-    # Cadastrando Marca produto
-
+    # cadastrando marca produto
     def updateMarcaProduto(self):
-
         try:
-            # Abrindo a Sessao
+            # abrindo a sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Selecionando id
+            # selecionando id
             row = sessao.query(MarcaProduto).get(self.id)
 
-            # Novos valores
+            # novos valores
             row.marca_produto = self.marca_produto
 
-            # Executando a query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:
@@ -92,20 +82,17 @@ class CrudMarcaProduto(object):
 
         pass
 
-    # Listando todas as Marcas
-
+    # listando todas as marcas
     def listaMarcaProdutos(self):
-
         try:
-
-            # Abrindo a Sessao
+            # abrindo a sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             self.query = sessao.query(MarcaProduto).all()
 
-            # Convertendo variaveis em lista
+            # convertendo variaveis em lista
             self.id = []
             self.marca_produto = []
 
@@ -115,7 +102,7 @@ class CrudMarcaProduto(object):
                 self.id.append(row.id)
                 self.marca_produto.append(row.marca_produto)
 
-            # Fechando Conexao
+            # fechando conexao
             sessao.close()
 
         except IntegrityError as err:

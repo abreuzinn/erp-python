@@ -1,11 +1,7 @@
-# -*- coding: utf-8 -*-
-
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy import desc
-
 from Crud.core import Conexao
 from Crud.Models import CatAPagar
-
 
 class CrudCatAPagar(object):
     def __init__(self, id="", categoriaPagar="", query=""):
@@ -13,102 +9,88 @@ class CrudCatAPagar(object):
         self.categoriaPagar = categoriaPagar
         self.query = query
 
-    # Recebendo ultimo Id inserido
+    # recebe ultimo id inserido
     def lastIdCatAPagar(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
-
-            # Query
+            # query
             ultimo = sessao.query(CatAPagar.id).order_by(
                 desc(CatAPagar.id)).limit(1).first()
-
             self.id = ultimo.id + 1
-
-            # Fechando a conexao
+            # fechando a conexao
             sessao.close()
-
         except:
             self.id = 1
 
         return self.id
 
-    # Cadastrando categoria a Pagar
+    # cadastra categoria a pagar
     def inseriCatAPagar(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
-
-            # Query
+            # query
             row = CatAPagar(
                 id=self.id,
                 categoria_a_pagar=self.categoriaPagar
             )
-
-            # Add Query na sessao
+            # add query na sessao
             sessao.add(row)
 
-            # Executando a query
+            # executa a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fecha a conmexao
             sessao.close()
 
         except IntegrityError:
             self.updateCatAPagar()
 
-    # Update categoria a Pagar
+    # update categoria a pagar
     def updateCatAPagar(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Selecionando id
+            # selecioanndo id
             row = sessao.query(CatAPagar).get(self.id)
 
-            # Novos Valores
+            # novos valores
             row.categoria_a_pagar = self.categoriaPagar
 
-            # Executando a query
+            # executa a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fecha a comnexao
             sessao.close()
 
         except IntegrityError as err:
             print(err)
 
-    # Listando todas as categorias a pagar
+    # lista todas as categorias a pagar
     def listaCatAPagar(self):
-
         try:
-
-            # Abrindo Sessao
+            # abre sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             self.query = sessao.query(CatAPagar).all()
 
-            # Convertendo variaveis em lista
+            # converte variaveis em lista
             self.id = []
             self.categoriaPagar = []
 
-            # Salvando resultado em suas lisats
+            # salva resultado em suas lisats
             for row in self.query:
                 self.id.append(row.id)
                 self.categoriaPagar.append(row.categoria_a_pagar)
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:

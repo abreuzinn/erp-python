@@ -1,11 +1,7 @@
-# -*- coding: utf-8 -*-
-
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy import desc
-
 from Crud.core import Conexao
 from Crud.Models import StatusEntrega
-
 
 class CrudStatusEntrega(object):
     def __init__(self, id="", statusEntrega="", query=""):
@@ -13,23 +9,20 @@ class CrudStatusEntrega(object):
         self.statusEntrega = statusEntrega
         self.query = query
 
-    # Recebendo ultimo Id inserido
-
+    # recebendo ultimo id inserido
     def lastIdStatusEntrega(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             ultimo = sessao.query(StatusEntrega.id).order_by(
                 desc(StatusEntrega.id)).limit(1).first()
 
             self.id = ultimo.id + 1
 
-            # Fechando a conexao
+            # fechando a conexao
             sessao.close()
 
         except:
@@ -37,81 +30,73 @@ class CrudStatusEntrega(object):
 
         return self.id
 
-    # Cadastrando categoria a receber
+    # cadastrando categoria a receber
     def inseriStatusEntrega(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             row = StatusEntrega(
                 id=self.id,
                 status_entrega=self.statusEntrega
             )
 
-            # Add query na Sessao
+            # add query na sessao
             sessao.add(row)
 
-            # Executando a query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:
             self.updateStatusEntrega()
 
-    # Update categoria a receber
+    # update categoria a receber
     def updateStatusEntrega(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Selecionando id
-
+            # selecionando id
             row = sessao.query(StatusEntrega).get(self.id)
 
-            # Novos Dados
+            # novos dados
             row.status_entrega = self.statusEntrega
 
-            # Executando a query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:
             print(err)
 
-    # Listando todas as categorias
+    # listando todas as categorias
     def listaStatusEntrega(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             self.query = sessao.query(StatusEntrega).all()
 
-            # Convertendo Variaveis em lista
+            # convertendo variaveis em lista
             self.id = []
             self.statusEntrega = []
 
-            # Salvando dados em suas variaveis
-
+            # salvando dados em suas variaveis
             for row in self.query:
                 self.id.append(row.id)
                 self.statusEntrega.append(row.status_entrega)
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:

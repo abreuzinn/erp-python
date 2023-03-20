@@ -1,11 +1,6 @@
-# coding=utf-8
-
 from sqlalchemy import Column, String, Integer, Numeric, ForeignKey, Date
 from sqlalchemy.dialects.mysql import LONGBLOB
-
-
 from Crud.core import Base
-
 
 # tabela Cliente
 class Cliente(Base):

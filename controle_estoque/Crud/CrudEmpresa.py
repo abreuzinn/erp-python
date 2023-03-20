@@ -1,11 +1,7 @@
-# -*- coding: utf-8 -*-
-
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy import desc
-
 from Crud.core import Conexao
 from Crud.Models import Empresa
-
 
 class CrudEmpresa(object):
 
@@ -35,22 +31,20 @@ class CrudEmpresa(object):
         self.logo = logo
         self.query = query
 
-    # Recebendo última id inserido
-
+    # recebendo última id inserido
     def lastIdEmpresa(self):
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             ultimo = sessao.query(Empresa).order_by(
                 desc(Empresa.id)).limite(1).first()
 
             self.id = ultimo.id + 1
 
-            # Fechando Conexao
+            # fechando conexao
             sessao.close()
 
             pass
@@ -63,16 +57,16 @@ class CrudEmpresa(object):
 
         return self.id
 
-    # Cadastro de Empresa
+    # cadastro de empresa
     def inseriEmpresa(self):
 
         try:
 
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             row = Empresa(
                 id=1,
                 nome_fantasia=self.nomeFantasia,
@@ -94,33 +88,30 @@ class CrudEmpresa(object):
                 logo=self.logo
             )
 
-            # Add Query sessao
+            # add query sessao
             sessao.add(row)
 
-            # Executando a query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError:
 
             self.updateEmpresa()
 
-    # Update de Empresa
+    # update de Empresa
     def updateEmpresa(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Selecionando ID
+            # selecionando id
             row = sessao.query(Empresa).get(1)
 
-            # Novos Valores
-
+            # novos valores
             row.nome_fantasia = self.nomeFantasia
             row.razao_social = self.razaoSocial
             row.cnpj = self.cnpj
@@ -139,31 +130,29 @@ class CrudEmpresa(object):
             row.subtitulo = self.subtitulo
             row.logo = self.logo
 
-            # Add Query sessao
+            # add query sessao
             sessao.add(row)
 
-            # Executando a query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:
             print(err)
 
-    # Selecionar Empresa por Id
+    # selecionar empresa por id
     def SelectEmpresaId(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             busca = sessao.query(Empresa).get(1)
 
-            # Salvando resultado da Query
+            # salvando resultado da query
             self.id = busca.id
             self.nomeFantasia = busca.nome_fantasia
             self.razaoSocial = busca.razao_social
@@ -183,7 +172,7 @@ class CrudEmpresa(object):
             self.subtitulo = busca.subtitulo
             self.logo = busca.logo
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
             pass

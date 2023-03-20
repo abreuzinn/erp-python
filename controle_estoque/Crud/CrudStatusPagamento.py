@@ -1,11 +1,7 @@
-# -*- coding: utf-8 -*-
-
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy import desc
-
 from Crud.core import Conexao
 from Crud.Models import StatusPagamento
-
 
 class CrudStatusPagamento(object):
     def __init__(self, id="", statusPagamento="", query=""):
@@ -13,23 +9,20 @@ class CrudStatusPagamento(object):
         self.statusPagamento = statusPagamento
         self.query = query
 
-    # Recebendo ultimo Id inserido
-
+    # recebendo ultimo id inserido
     def lastIdStatusPagamento(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             ultimo = sessao.query(StatusPagamento.id).order_by(
                 desc(StatusPagamento.id)).limit(1).first()
 
             self.id = ultimo.id + 1
 
-            # Fechando a conexao
+            # fechando a conexao
             sessao.close()
 
         except:
@@ -37,82 +30,73 @@ class CrudStatusPagamento(object):
 
         return self.id
 
-    # Cadastrando Status Pagamento
+    # cadastrando status pagamento
     def inseriStatusPagamento(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             row = StatusPagamento(
                 id=self.id,
                 status_pagamento=self.statusPagamento
             )
 
-            # Add Query na sessao
+            # add query na sessao
             sessao.add(row)
 
-            # Executando a query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError:
             self.updateStatusPagamento()
 
-    # Update Status Pagamento
+    # update status pagamento
     def updateStatusPagamento(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Selecionando
+            # selecionando
             row = sessao.query(StatusPagamento).get(self.id)
 
-            # Query
-
+            # query
             row.status_pagamento = self.statusPagamento
 
-            # Executando a query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:
             print(err)
 
-    # Listando todas as categorias
+    # listando todas as categorias
     def listaStatusPagamento(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             self.query = sessao.query(StatusPagamento).all()
 
-            # Convertendo variaveis em lista
-
+            # convertendo variaveis em lista
             self.id = []
             self.statusPagamento = []
 
             # salvando resultado em suas listas
-
             for row in self.query:
                 self.id.append(row.id)
                 self.statusPagamento.append(row.status_pagamento)
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:

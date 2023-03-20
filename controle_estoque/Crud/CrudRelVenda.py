@@ -1,17 +1,12 @@
-# -*- coding: utf-8 -*-
-
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy import desc
 from sqlalchemy import case
-
 from Crud.core import Conexao
 from Crud.Models import RelacaoVenda, Produto
-
 
 class CrudRelVenda(object):
     def __init__(self, id="", idVenda="", idProduto="", produto="", qtde="",
                  valorUnitario="", valorTotal="", obs="", query=""):
-
         self.id = id
         self.idVenda = idVenda
         self.idProduto = idProduto
@@ -22,17 +17,14 @@ class CrudRelVenda(object):
         self.obs = obs
         self.query = query
 
-    # Cadastrando item referente a Venda
-
+    # cadastrando item referente a venda
     def inseriItens(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             row = RelacaoVenda(
                 id=self.id,
                 id_venda=self.idVenda,
@@ -43,13 +35,13 @@ class CrudRelVenda(object):
                 obs=self.obs
             )
 
-            # Adicionando query na sessao
+            # adicionando query na sessao
             sessao.add(row)
 
-            # Executando a Query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError:
@@ -57,15 +49,12 @@ class CrudRelVenda(object):
 
     # update item referente a Venda
     def updateItensVenda(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Selecionando ID
-
+            # selecionando id
             row = sessao.query(RelacaoVenda).get(self.id)
 
             # Novos Valores
@@ -76,25 +65,23 @@ class CrudRelVenda(object):
             row.valor_total = self.valorTotal
             row.obs = self.obs
 
-            # Executando a Query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:
             print(err)
 
-    # Lista Itens por id de Venda
+    # lista itens por id de venda
     def listaItens(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             self.query = (sessao.query(
                 RelacaoVenda.id, RelacaoVenda.id_venda,
                 RelacaoVenda.id_produto, RelacaoVenda.qtde,
@@ -105,7 +92,7 @@ class CrudRelVenda(object):
                 .filter(RelacaoVenda.id_venda == self.idVenda))
             self.query.all()
 
-            # Convertendo variaveis em lista
+            # convertendo variaveis em lista
             self.id = []
             self.idVenda = []
             self.idProduto = []
@@ -115,7 +102,7 @@ class CrudRelVenda(object):
             self.valorTotal = []
             self.obs = []
 
-            # Salvando resultado da query e suas listas
+            # salvando resultado da query e suas listas
             for row in self.query:
                 self.id.append(row.id)
                 self.idVenda.append(row.id_venda)
@@ -126,31 +113,28 @@ class CrudRelVenda(object):
                 self.valorTotal.append(row.valor_total)
                 self.obs.append(row.obs)
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:
             print(err)
 
-    # Deletando item
-
+    # deletando item
     def delItem(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Selecionando ID
+            # selecionando id
             self.query = (sessao.query(RelacaoVenda).get(self.id))
             if self.query:
                 # add query na sessao
                 sessao.delete(self.query)
-                # Executando a query
+                # executando a query
                 sessao.commit()
 
-            # # Fechando Conexao
+            # fechando conexao
             sessao.close()
 
         except IntegrityError as err:

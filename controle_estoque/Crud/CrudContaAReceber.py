@@ -1,13 +1,8 @@
-# -*- coding: utf-8 -*-
-
 from datetime import date
-
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy import desc
 from sqlalchemy import case
 from sqlalchemy import func
-
-
 from Crud.core import Conexao
 from Crud.Models import ContaAReceber
 from Crud.Models import Cliente
@@ -15,16 +10,13 @@ from Crud.Models import StatusPagamento
 from Crud.Models import CatAReceber
 from Crud.Models import FormaPagamento
 
-
 class CrudContaAReceber(object):
-
     def __init__(self, id="", idVenda="", idCliente="", descricao="",
                  obs="", categoria="", dataVencimento="",
                  valor="", idFormaPagamento="",  formaPagamento="",
                  dataRecebimento="", valorRecebido="", idStatusPagamento="",
                  statusPagamento="", query="", dataFim="", valorAReceber="",
                  nomeCliente="", telefoneCliente=""):
-
         self.id = id
         self.idVenda = idVenda
         self.idCliente = idCliente
@@ -51,11 +43,11 @@ class CrudContaAReceber(object):
 
         try:
 
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             ultimo = (sessao.query(ContaAReceber)
                       .order_by(desc(ContaAReceber.id)).limit(1).first())
             self.id = ultimo.id + 1
@@ -72,11 +64,11 @@ class CrudContaAReceber(object):
 
         try:
 
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             row = ContaAReceber(
                 id=self.id,
                 id_venda=self.idVenda,
@@ -88,28 +80,26 @@ class CrudContaAReceber(object):
                 forma_pagamento=self.formaPagamento
             )
 
-            # Add Query Sessao
+            # add query sessao
             sessao.add(row)
 
-            # Executando a Query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:
             print(err)
 
-    # Lista de  parcelas de Venda
+    # lista de  parcelas de venda
     def listaParcelas(self):
-
         try:
-
-            # Abrindo sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             self.query = (sessao.query(ContaAReceber.__table__,
                                        StatusPagamento.status_pagamento,
                                        FormaPagamento.forma_pagamento.label('fpaga'))
@@ -119,7 +109,7 @@ class CrudContaAReceber(object):
                 ContaAReceber.id_venda == self.idVenda))
             self.query.all()
 
-            # Convertendo variaveis em lista
+            # convertendo variaveis em lista
             self.id = []
             self.descricao = []
             self.dataVencimento = []
@@ -130,8 +120,7 @@ class CrudContaAReceber(object):
             self.statusPagamento = []
             self.idStatusPagamento = []
 
-            # Salvando resultado da query e suas listas
-
+            # salvando resultado da query e suas listas
             for row in self.query:
                 self.id.append(row.id)
                 self.descricao.append(row.descricao)
@@ -143,22 +132,20 @@ class CrudContaAReceber(object):
                 self.idStatusPagamento.append(row.pagamento)
                 self.statusPagamento.append(row.status_pagamento)
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:
             print(err)
 
-    # Cadastrando Conta a Receber
+    # cadastrando conta a receber
     def inseriContaAReceber(self):
-
         try:
-
-            # Abrindo sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             row = ContaAReceber(
                 id=self.id,
                 id_cliente=self.idCliente,
@@ -170,31 +157,29 @@ class CrudContaAReceber(object):
                 forma_pagamento=self.formaPagamento
             )
 
-            # Add query a sessao
+            # add query a sessao
             sessao.add(row)
 
-            # Executando a Query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError:
             self.updateContaAReceber()
 
-    # Update Conta a Receber
+    # update conta a receber
     def updateContaAReceber(self):
-
         try:
-
-            # Abrindo sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Selecionando id
+            # selecionando id
             row = sessao.query(ContaAReceber).get(self.id)
 
-            # Novos Valores
+            # novos valores
             row.id_cliente = self.idCliente
             row.descricao = self.descricao
             row.obs = self.obs
@@ -203,25 +188,23 @@ class CrudContaAReceber(object):
             row.valor = self.valor
             row.forma_pagamento = self.formaPagamento
 
-            # Executando a Query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:
             print(err)
 
-    # Buscando conta a pagar por vencimento, Cliente e status
+    # buscando conta a pagar por vencimento, cliente e status
     def listaContaAReceber(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             self.query = (sessao.query(ContaAReceber.__table__,
                                        Cliente.nome,
                                        Cliente.celular,
@@ -233,7 +216,7 @@ class CrudContaAReceber(object):
                 ContaAReceber.pagamento == self.statusPagamento)
             )
 
-            # Convertendo variaveis em lista
+            # convertendo variaveis em lista
             self.id = []
             self.nomeCliente = []
             self.telefoneCliente = []
@@ -258,7 +241,7 @@ class CrudContaAReceber(object):
                 self.idStatusPagamento.append(row.pagamento)
                 self.statusPagamento.append(row.status_pagamento)
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:
@@ -266,16 +249,14 @@ class CrudContaAReceber(object):
 
         pass
 
-    # Selecionando conta a receber por ID
+    # selecionando conta a receber por id
     def selectContaID(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             row = sessao.query(ContaAReceber).get(self.id)
 
             # salvando resultado em variaveis
@@ -291,40 +272,38 @@ class CrudContaAReceber(object):
             self.valorRecebido = row.valor_recebido
             self.idStatusPagamento = row.pagamento
 
-            # Fechando Conexao
+            # fechando conexao
             sessao.close()
 
         except IntegrityError as err:
             print(err)
 
-    # Receber Conta
+    # receber conta
     def receberConta(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Selecionando ID
+            # selecionando id
             row = sessao.query(ContaAReceber).get(self.id)
 
-            # Update Status se valor recebido igual ou maior que valor parcela
+            # update status se valor recebido igual ou maior que valor parcela
             status = case([
                 (ContaAReceber.valor_recebido >= row.valor, '1')
             ], else_='2'
             )
 
-            # Query
+            # query
             row.forma_pagamento = self.formaPagamento
             row.data_recebimento = self.dataRecebimento
             row.valor_recebido = ContaAReceber.valor_recebido + self.valorRecebido
             row.pagamento = status
 
-            # Executando a query
+            # executando a query
             sessao.commit()
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:
@@ -332,16 +311,14 @@ class CrudContaAReceber(object):
 
     """  Obtendo Movimentação financeira """
 
-    # Total a receber referente a data selecionada
+    # total a receber referente a data selecionada
     def movEntrada(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             row = (sessao.query(func.COALESCE(
                 func.SUM(ContaAReceber.valor_recebido), 0
             ).label('valorRecebido'))
@@ -351,11 +328,11 @@ class CrudContaAReceber(object):
             )
             row.all()
 
-            # Salvando resultado
+            # salvando resultado
             for row in row:
                 self.valorRecebido = row.valorRecebido
 
-            # Query
+            # query
             row = (sessao.query(func.COALESCE(
                 func.SUM(ContaAReceber.valor), 0
             ).label('valorAReceber'))
@@ -365,11 +342,11 @@ class CrudContaAReceber(object):
             )
             row.all()
 
-            # Salvando resultado
+            # salvando resultado
             for row in row:
                 self.valorAReceber = row.valorAReceber
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close
 
         except IntegrityError as err:
@@ -379,14 +356,12 @@ class CrudContaAReceber(object):
 
     # detalhes entrada por categoria de receita
     def detalheEntrada(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             self.query = (sessao.query(func.SUM(ContaAReceber.valor_recebido).label('entrada'),
                                        CatAReceber.categoria_a_receber,
                                        FormaPagamento.forma_pagamento)
@@ -398,38 +373,36 @@ class CrudContaAReceber(object):
                           .group_by(ContaAReceber.forma_pagamento, ContaAReceber.categoria)
                           )
 
-            # Convertendo variaveis em lista
+            # convertendo variaveis em lista
             self.valorRecebido = []
             self.categoria = []
             self.formaPagamento = []
 
-            # Salvando resultado em suas listas
+            # salvando resultado em suas listas
             for row in self.query:
                 self.categoria.append(row.categoria_a_receber)
                 self.valorRecebido.append(row.entrada)
                 self.formaPagamento.append(row.forma_pagamento)
 
-            # Fechando a Conexao
+            # fechando a conexao
             sessao.close()
 
         except IntegrityError as err:
             print(err)
 
-    # Total a Receber Hoje
+    # total a receber hoje
     def aReceberHoje(self):
-
         try:
-
-            # Abrindo Sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             row = (sessao.query(func.COALESCE(
                 func.SUM(ContaAReceber.valor), 0).label('total'))
                 .filter(ContaAReceber.data_vencimento == date.today(), ContaAReceber.pagamento == 2))
 
-            # Salvando Resultado
+            # salvando resultado
             for row in row:
                 self.valorAReceber = row.total
 

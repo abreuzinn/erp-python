@@ -1,11 +1,9 @@
-# -*- coding: utf-8 -*-
 from Crud.CrudCliente import CrudCliente
 
-
 class Clientes(object):
+
     # AutoComplete Cliente
     def autocompleCliente(self):
-
         busca = CrudCliente()
         busca.nome = self.tx_NomeFantasia.text()
         busca.autoCompleteCliente()
@@ -13,7 +11,7 @@ class Clientes(object):
         if busca.nome:
             self.model.setStringList(lista)
 
-    # Busca cliente por nome
+    # bnsca cliente por nome
     def BuscaClienteNome(self, campoFoco):
 
         busca = CrudCliente()
@@ -22,7 +20,7 @@ class Clientes(object):
         self.tx_Id.setText(str(busca.id))
         self.BuscaClienteId(campoFoco)
 
-    # Busca cliente por ID
+    # busca cliente por id
     def BuscaClienteId(self, campoFoco):
         id = int(self.tx_Id.text())
         busca = CrudCliente()

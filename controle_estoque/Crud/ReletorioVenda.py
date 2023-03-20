@@ -1,15 +1,10 @@
-# -*- coding: utf-8 -*-
-
-
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy import func
-
 from core import Conexao
 from Models import Venda
 from Models import Produto
 from Models import RelacaoVenda
 from Models import Usuarios
-
 
 class RelatorioVenda(object):
     def __init__(self, idVenda="", dataVenda="", totalVenda="", numItens="",
@@ -27,25 +22,20 @@ class RelatorioVenda(object):
         self.dataInicio = dataInicio
         self.dataFim = dataFim
 
-    # Agrupar por vendedor
-
+    # agrupar por vendedor
     def RelatorioVendedor(self):
-
         try:
-
-            # Abrindo sessao
+            # abrindo sessao
             conecta = Conexao()
             sessao = conecta.Session()
 
-            # Query
+            # query
             vendedor = (sessao.query(Venda.vendedor)
                         .filter(Venda.vendedor.contains(self.idVendedor))
                         .group_by(Venda.vendedor)
                         )
             for row in vendedor:
                 print(row.vendedor)
-            
-            
             
             for row in vendedor:
                 query = (sessao.query(Venda.__table__, Usuarios.nome)
@@ -69,12 +59,11 @@ class RelatorioVenda(object):
                     self.dataVenda.append(row.data_emissao)
                     self.totalVenda.append(row.valor_total)
 
-            # Fechando Sessao
+            # fechando sessao
             sessao.close()
 
         except IntegrityError as err:
             print(err)
-
 
 busca = RelatorioVenda()
 busca.dataInicio = '2019-01-01'
