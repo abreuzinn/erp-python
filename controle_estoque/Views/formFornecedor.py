@@ -1,11 +1,3 @@
-# Form implementation generated from reading ui file 'formFornecedor.ui',
-# licensing of 'formFornecedor.ui' applies.
-#
-# Created: Fri Mar 15 09:54:22 2019
-#      by: PyQt5-uic  running on PyQt5 5.12.1
-#
-# WARNING! All changes made in this file will be lost!
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_ct_FormFornecedor(object):

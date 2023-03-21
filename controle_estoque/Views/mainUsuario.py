@@ -1,15 +1,4 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'mainUsuario.ui',
-# licensing of 'mainUsuario.ui' applies.
-#
-# Created: Fri Mar 22 13:47:16 2019
-#      by: PyQt5-uic  running on PyQt5 5.12.1
-#
-# WARNING! All changes made in this file will be lost!
-
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 
 class Ui_ct_Usuario(object):
     def setMainUsuario(self, ct_Usuario):

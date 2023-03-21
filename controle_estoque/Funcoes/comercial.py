@@ -5,15 +5,13 @@ from functools import partial
 from Crud.CrudProduto import CrudProduto
 
 class Comercial(object):
-    """ Funcoes das Telas de Venda e Compra """
-
     def validaCampos(self):
-        # Setando Validadot Int nos campos
+        # setando validadot int nos campos
         validaInt = QIntValidator(0, 9999)
 
         self.tx_IdBuscaItem.setValidator(validaInt)
         self.tx_Id.setValidator(validaInt)
-        # Setando Validador float nos campos
+        # setando validador float nos campos
         validarValor = QDoubleValidator(0.00, 999.99, 2)
         validarValor.setNotation(QDoubleValidator.StandardNotation)
         validarValor.setDecimals(2)
@@ -21,16 +19,16 @@ class Comercial(object):
         self.tx_Frete.setValidator(validarValor)
         self.tx_QntdItem.setValidator(validarValor)
 
-    # Setando Datas Padrão
+    # setando datas padrão
     def setDatas(self):
         self.dt_Emissao.setDate(QDate.currentDate())
         self.dt_Prazo.setDate(QDate.currentDate().addDays(2))
         self.dt_Entrega.setDate(QDate.currentDate())
         self.dt_Vencimento.setDate(QDate.currentDate())
 
-    # Setando Icone dos Botoes
+    # setando icone dos botoes
     def setIcones(self):
-        # Icone Botoes
+        # icone botoes
         self.IconeBotaoMenu(self.bt_Salvar,
                             self.resourcepath('Images/salvar.png'))
 
@@ -49,9 +47,9 @@ class Comercial(object):
         self.IconeBotaoForm(self.bt_IncluirItem,
                             self.resourcepath('Images/addPedido.svg'))
 
-    # Definindo Tamanho das tabelas
+    # definindo tamanho das tabelas
     def tamanhoTabelas(self):
-        # Tamanho das Colunas Tabela Itens
+        # tamanho das colunas tabela itens
         self.tb_Itens.blockSignals(True)
         self.tb_Itens.setColumnHidden(0, True)
         self.tb_Itens.setColumnHidden(7, True)
@@ -96,7 +94,7 @@ class Comercial(object):
         else:
             self.AddItemTabela()
 
-    # Adiciona Item a tabela
+    # adiciona item a tabela
     def AddItemTabela(self):
         row = self.tb_Itens.rowCount()
         self.tb_Itens.insertRow(row)
@@ -123,7 +121,7 @@ class Comercial(object):
         self.LimpaCampoAddProduto()
         self.bt_GerarParcela.setEnabled(True)
 
-    # Calcular total de Venda e Compra
+    # calcular total de venda e compra
     def TotalFinal(self):
         total = 0
 
@@ -159,14 +157,14 @@ class Comercial(object):
             self.lb_ValorPendente.setText(format(TotalFinal, ".2f"))
             pass
 
-    # Limpando campos após adicionar produdo
+    # limpando campos após adicionar produyo
     def LimpaCampoAddProduto(self):
         for filho in self.fr_addProduto.findChildren(QLineEdit):
             filho.clear()
         self.bt_IncluirItem.setDisabled(True)
         self.tx_IdBuscaItem.setFocus()
 
-    # Gerando parcelas Venda e Compra
+    # gerando parcelas venda e compra
     def gerarParcela(self, acao):
         numParcela = int(self.cb_QtdeParcela.currentData())
         valorTotal = self.tx_TotalFinal.text()
@@ -188,16 +186,16 @@ class Comercial(object):
 
         pass
 
-    # Validar valor Recebido
+    # validar valor recebido
     def validarRecebimento(self):
         valorRecebido = float(self.tx_ValorPago.text().replace(',', '.'))
         valorPendente = float(self.lb_ValorPendente.text().replace(',', '.'))
         if valorRecebido > valorPendente:
             self.tx_ValorPago.setText(format(valorPendente, '.2f'))
 
-    # Setando auto complete
+    # setando auto complete
     def setAutocomplete(self):
-        # Setando Auto complete
+        # setando auto complete
         self.completer = QCompleter(self)
         self.completer.setCaseSensitivity(Qt.CaseInsensitive)
         self.completer.setCompletionMode(QCompleter.PopupCompletion)
@@ -206,7 +204,7 @@ class Comercial(object):
         self.tx_BuscaItem.setCompleter(self.completer)
         self.tx_NomeFantasia.setCompleter(self.completer)
 
-    # AutoComplete Produtos
+    # autocomplete produtos
     def autocompleteProduto(self):
         busca = CrudProduto()
         busca.produto = self.tx_BuscaItem.text()
@@ -215,7 +213,7 @@ class Comercial(object):
         if busca.produto:
             self.model.setStringList(busca.produto)
 
-    # Busca Produto por nome
+    # busca produto por nome
     def BuscaProdutoNome(self):
         busca = CrudProduto()
         busca.produto = self.tx_BuscaItem.text()

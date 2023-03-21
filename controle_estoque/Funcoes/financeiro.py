@@ -1,32 +1,29 @@
-# -*- coding: utf-8 -*-
 from PyQt5.QtGui import QIntValidator, QDoubleValidator
 from PyQt5.QtWidgets import QTableWidget, QCompleter, QLineEdit
 from PyQt5 import QtCore, QtWidgets
 from functools import partial
 
-
 class Financeiro(object):
-    # Setando Datas Padrão
+    # setando datas padrão
     def setDataFinanceiro(self):
-        # Setando Data Padrão
+        # setando data padrão
         self.dt_Inicio.setDate(self.primeiroDiaMes())
         self.dt_Fim.setDate(self.ultimoDiaMes())
         pass
 
-    # Setando Data Vencimento e data Pagamento
+    # setando data vencimento e data pagamento
     def setDataVencPgto(self):
         self.dt_Vencimento.setDate(QtCore.QDate.currentDate())
         self.dt_dataPagamento.setDate(QtCore.QDate.currentDate())
 
     def setIconFinanceiro(self):
-        # Icone dos botoes
+        # icone dos botoes
         self.IconeBotaoMenu(self.bt_Busca,
                             self.resourcepath('Images/search.png'))
         self.IconeBotaoMenu(self.bt_Print,
                             self.resourcepath('Images/gtk-print.png'))
         self.IconeBotaoForm(self.bt_AddConta,
                             self.resourcepath('Images/addConta.svg'))
-
         pass
 
     def setIconFormFinanceiro(self):
@@ -63,9 +60,9 @@ class Financeiro(object):
             tabela.setColumnWidth(7, 40)
         pass
 
-    # Setando auto complete
+    # setando auto complete
     def setAutocompleteFinanceiro(self):
-        # Setando Auto complete
+        # setando Auto complete
         self.completer = QCompleter(self)
         self.completer.setCaseSensitivity(QtCore.Qt.CaseInsensitive)
         self.completer.setCompletionMode(QCompleter.PopupCompletion)
@@ -86,16 +83,15 @@ class Financeiro(object):
         for i in range(2, 13):
             cbox.addItem("{} Vezes".format(i), str(i))
 
-    # Ocultando e mostando campo add categoria
+    # ocultando e mostando campo add categoria
     def AddCategoriaFinanceiro(self):
         self.cb_categoria.setHidden(True)
         self.bt_AddCategoriaProduto.setHidden(True)
         self.bt_CancelAddCatergoria.setVisible(True)
         self.tx_addCategoria.setVisible(True)
         self.tx_addCategoria.setFocus()
-    # Fim Botoes Categoria e Marca
 
-    # Cancelado Add Marca / Categoria
+    # cancelado add marca / categoria
     def CalcelAddFinanceiro(self, *args):
         args[0].setHidden(True)
         args[1].setVisible(True)
@@ -104,7 +100,7 @@ class Financeiro(object):
         args[3].setFocus()
 
     def ValidaInputInt(self, campo):
-        # Setando Validadot Int nos campos
+        # setando validadot int nos campos
         validaInt = QIntValidator(0, 9999)
         campo.setValidator(validaInt)
 

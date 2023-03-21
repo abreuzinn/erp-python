@@ -1,10 +1,7 @@
-# -*- coding: utf-8 -*-
 from Crud.CrudFormaPagamento import CrudFormaPagamento
 
-
 class FormaPagamento(object):
-
-    # Populando combobox forma de pagamento
+    # populando combobox forma de pagamento
     def CboxFPagamento(self, combobox):
         busca = CrudFormaPagamento()
         busca.listaFormaPagamento()

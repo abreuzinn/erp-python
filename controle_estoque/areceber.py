@@ -1,22 +1,13 @@
-# -*- codind: utf-8 -*-
 from functools import partial
 from datetime import date
-
-
 from PyQt5.QtCore import QDate, Qt, QUrl
 from PyQt5.QtWebEngineWidgets import QWebEngineView
-
-
 from Views.aReceber import Ui_ct_AReceber
 from Views.formAReceber import Ui_ct_FormReceber
-
-
 from Crud.CrudContaAReceber import CrudContaAReceber
 from Crud.CrudCatAReceber import CrudCatAReceber
 from Crud.CrudStatusPagamento import CrudStatusPagamento
-
 from Funcoes.extenso import retorno
-
 
 class MainAReceber(Ui_ct_AReceber, Ui_ct_FormReceber):
     def mainAReceber(self, frame):

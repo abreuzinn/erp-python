@@ -1,8 +1,7 @@
 from Crud.CrudCatAReceber import CrudCatAReceber
 
 class CategoriaAReceber(object):
-
-    # Pppulando combobox forma de pagamento
+    # pppulando combobox forma de pagamento
     def cboxCatAReceber(self, combobox):
         busca = CrudCatAReceber()
         busca.listaCatAReceber()

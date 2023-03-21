@@ -1,11 +1,3 @@
-# Form implementation generated from reading ui file 'formClientes.ui',
-# licensing of 'formClientes.ui' applies.
-#
-# Created: Sat Feb  9 00:37:37 2019
-#      by: PyQt5-uic  running on PyQt5 5.12.1
-#
-# WARNING! All changes made in this file will be lost!
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_ct_FormClientes(object):

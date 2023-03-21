@@ -1,11 +1,3 @@
-# Form implementation generated from reading ui file 'mainFinanceiro.ui',
-# licensing of 'mainFinanceiro.ui' applies.
-#
-# Created: Sat Mar 19 13:33:24 2023
-#      by: PyQt5-uic  running on PyQt5 5.12.1
-#
-# WARNING! All changes made in this file will be lost!
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_ct_MainFinanceiro(object):

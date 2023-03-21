@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
-# Autor: Fabiano Weimar dos Santos (xiru)
-# Correcao em 20080407: Gustavo Henrique Cervi (100:"cento") => (1:"cento')
-# Correcao em 20100311: Luiz Fernando B. Vital adicionado {0:""} ao ext[0], pois dava KeyError: 0 em números como 200, 1200, 300, etc.
-# Modificação para tradução de moeda
-
 import sys
 
 ext = [{1: "um", 2: "dois", 3: "três", 4: "quatro", 5: "cinco", 6: "seis", 7: "sete", 8: "oito", 9: "nove", 10: "dez", 11: "onze", 12: "doze", 13: "treze", 14: "quatorze", 15: "quinze",
@@ -16,7 +8,6 @@ ext = [{1: "um", 2: "dois", 3: "três", 4: "quatro", 5: "cinco", 6: "seis", 7: "
 
 und = ['', ' mil', (' milhão', ' milhões'), (' bilhão',
                                              ' bilhões'), (' trilhão', ' trilhões')]
-
 
 def cent(s, grand):
     s = '0' * (3 - len(s)) + s
@@ -41,7 +32,6 @@ def cent(s, grand):
                 ret += ' e ' + ext[0][int(s[2])]
 
     return ret + (type(und[grand]) == type(()) and (int(s) > 1 and und[grand][1] or und[grand][0]) or und[grand])
-
 
 def extenso(reais, centavos):
     ret = []
@@ -70,7 +60,6 @@ def extenso(reais, centavos):
         grand += 1
     ret.reverse()
     return ' e '.join([r for r in ret if r])
-
 
 def retorno(n):
     try:

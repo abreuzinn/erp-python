@@ -1,11 +1,3 @@
-# Form implementation generated from reading ui file 'mainConfig.ui',
-# licensing of 'mainConfig.ui' applies.
-#
-# Created: Sat Mar 20 13:32:36 2023
-#      by: PyQt5-uic  running on PyQt5 5.12.1
-#
-# WARNING! All changes made in this file will be lost!
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_ct_MainConfig(object):

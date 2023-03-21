@@ -1,10 +1,7 @@
-# -*- coding: utf-8 -*-
 from datetime import date
 import calendar
 
-
 class DataAtual(object):
-
     def __init__(self, diames="", diasemana="", ultimodia="", primeiroDia="",
                  dataAtual="", mes=""):
         self.dataAtual = dataAtual

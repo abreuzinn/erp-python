@@ -1,13 +1,3 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'formCompras.ui',
-# licensing of 'formCompras.ui' applies.
-#
-# Created: Mon Feb 11 12:24:19 2019
-#      by: PyQt5-uic  running on PyQt5 5.12.1
-#
-# WARNING! All changes made in this file will be lost!
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_ct_FormCompra(object):

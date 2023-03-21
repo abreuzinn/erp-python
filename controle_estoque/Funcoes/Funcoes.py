@@ -1,19 +1,12 @@
-# -*- coding: utf-8 -*-
 from functools import partial
 import re
-
-
 from PyQt5.QtWidgets import QPushButton
 from PyQt5.QtCore import QSize
 from PyQt5.QtGui import QPixmap, QIcon
-
-
 from pycep_correios import get_address_from_cep
 from pycep_correios.exceptions import CEPNotFound, ConnectionError, InvalidCEP
 
-
 class Funcao(object):
-
     def LimpaFrame(self, frame):
         for i in range(len(frame.children())):
             frame.children()[i].deleteLater()
@@ -61,7 +54,7 @@ class Funcao(object):
         botao.setIcon(icon)
         botao.setIconSize(QSize(80, 35))
 
-    # Mascara Telefone
+    # mascara telefone
     def TelefoneMask(self, telefone):
         if len(telefone) == 11:
             self.tx_Telefone.setInputMask("(00) 00000-0000")
@@ -69,7 +62,7 @@ class Funcao(object):
             self.tx_Telefone.setInputMask("(00) 0000-0000")
         pass
 
-    # Formatando numero de telefone as tabelas
+    # formatando numero de telefone as tabelas
     def formatoNumTelefone(self, telefone):
         if telefone:
             telefone = re.sub('[^0-9]+', '', telefone)
@@ -87,7 +80,7 @@ class Funcao(object):
 
         return formato
 
-    # Cbox Numero Parcelas
+    # cbox numero parcelas
 
     def cboxParcelas(self, cbox):
         cbox.clear()
@@ -95,10 +88,9 @@ class Funcao(object):
         for i in range(2, 13):
             cbox.addItem("{} Vezes".format(i), i)
 
-    # buscar Cep
+    # buscar cep
     def buscarCepCliente(self):
         cep = self.tx_Cep.text()
-
         try:
             busca = get_address_from_cep(cep)
             self.tx_Endereco.setText(busca['logradouro'])

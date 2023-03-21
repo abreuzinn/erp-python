@@ -1,19 +1,17 @@
 from PyQt5.QtWidgets import QPushButton
 
-
-# View
+# view
 from Views.login import Ui_ct_login
 
-# Crud
+# crud
 from Crud.CrudLogin import Login
-
 
 class MainLogin(Ui_ct_login):
     def mainlogin(self, frame):
         super(MainLogin, self).setLogin(frame)
         self.frame_login.show()
 
-        # Foco Campos Usuário
+        # foco campos usuário
         self.tx_user.setFocus()
 
         global grupo
@@ -30,7 +28,6 @@ class MainLogin(Ui_ct_login):
         self.bt_login.clicked.connect(self.login)
 
     def login(self):
-
         login = Login()
         login.usuario = self.tx_user.text()
         login.senha = self.tx_senha.text()
@@ -41,7 +38,7 @@ class MainLogin(Ui_ct_login):
             self.idUser = login.idUser
             self.userNivel = login.nivel
 
-            # Setando nome de usuário logado
+            # setando nome de usuário logado
             self.lb_userName.setText(login.nomeUser)
 
             # habilitando botoes de acordo com nível
@@ -49,17 +46,17 @@ class MainLogin(Ui_ct_login):
                 for filho in grupo[row]:
                     filho.setVisible(True)
 
-            # Habilitando Botao meus dados e logout
+            # habilitando botao meus dados e logout
             self.bt_alterSenha.setEnabled(True)
             self.bt_logout.setEnabled(True)
 
-            # Se nivel for menor que 3 desabilita a home
+            # se nivel for menor que 3 desabilita a home
             if self.userNivel < 3:
                 self.bt_Home.setDisabled(True)
             else:
                 self.bt_Home.setEnabled(True)
 
-            # Redirecionando pra home
+            # redirecionando pra home
             self.index[login.nivel]()
 
         else:

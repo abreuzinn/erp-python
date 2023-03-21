@@ -1,12 +1,4 @@
 
-# Form implementation generated from reading ui file 'mainDbConfig.ui',
-# licensing of 'mainDbConfig.ui' applies.
-#
-# Created: Fri Mar 15 09:57:40 2023
-#      by: PyQt5-uic  running on PyQt5 5.12.1
-#
-# WARNING! All changes made in this file will be lost!
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 

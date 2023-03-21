@@ -1,9 +1,7 @@
-# -*- coding: utf-8 -*-
 from Crud.CrudFornecedor import CrudFornecedor
 
-
 class Fornecedor(object):
-    # AutoComplete Fornecedor
+    # autoComplete fornecedor
     def autocompleFornecedor(self):
         busca = CrudFornecedor()
         busca.nomeFantasia = self.tx_NomeFantasia.text()
@@ -12,7 +10,7 @@ class Fornecedor(object):
         if busca.nomeFantasia:
             self.model.setStringList(lista)
 
-    # Busca Fornecedor por nome
+    # busca fornecedor por nome
     def BuscaFornecedorNome(self, campoFoco):
         busca = CrudFornecedor()
         busca.nomeFantasia = self.tx_NomeFantasia.text()
@@ -20,7 +18,7 @@ class Fornecedor(object):
         self.tx_Id.setText(str(busca.id[0]))
         self.BuscaFornecedorId(campoFoco)
 
-    # Busca Fornecedor por ID
+    # busca Fornecedor por ID
     def BuscaFornecedorId(self, campoFoco):
         busca = CrudFornecedor()
         busca.id = int(self.tx_Id.text())

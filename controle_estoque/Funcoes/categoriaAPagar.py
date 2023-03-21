@@ -1,7 +1,6 @@
 from Crud.CrudCatAPagar import CrudCatAPagar
 
 class CategoriaAPagar(object):
-    
     # populando combobox forma de pagamento
     def cboxCatAPagar(self, combobox):
         busca = CrudCatAPagar()
